@@ -17,37 +17,37 @@
     <!-- PAGE WRAPPER -->
     <div class="wrapper">   
 
-        <header>
+        <header id="header" class="header-large">
             <div class="logo">
                 <h1>D.</h1>
             </div>
             <nav>
-                <ul class="nav-links">
-                    <li id="skills">
+                <ul id="navLinks" class="nav-links">
+                    <li data-section="mySkills">
                         <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">My skills</span>
+                        My skills
                     </li> 
-                    <li id="myWork">
+                    <li data-section="myWork">
                         <i class="fa fa-archive fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">My work</span>
+                        My work
                     </li>                       
-                    <li id="contactMe">
+                    <li data-section="contactMe">
                         <i class="fa fa-id-card fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">Contact me</span>
+                        Contact me
                     </li>
-                    <li id="aboutKYH">
+                    <li data-section="aboutKyh">
                         <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">Front End Developer på KYH</span>
+                        Front End Developer på KYH
                     </li> 
                     
                     <ul class="social-links">
                         <li>
                             <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
-                            <span class="nav-text">Github</span>
+                            Github
                         </li>
                         <li>
                             <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                            <span class="nav-text">LinkedIn</span>
+                            LinkedIn
                         </li>  
                     </ul>
                                  
@@ -57,7 +57,7 @@
     
         <main>
 
-        <div class="presentation flex-col-center">
+        <div id="presentation" class="presentation flex-col-center">
                 <div class="me">
                     <h1><span class="">D</span>aniel <span class="">Ö</span>hrn <span class="">H</span>asslöf,</h1>
                     <h2>Front End Developer student</h2>
@@ -65,13 +65,12 @@
 
                 <div class="my-work-anchor flex-col-center">
                     <h2>My work and skills</h2>
-                    <i id="scroll-anchor" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
+                    <i id="scrollAnchor" data-target="720" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
                 </div>
 
             </div>
 
-            <div class="my-skills">
-
+            <div id="mySkills" class="my-skills">
 
                 <div class="skills">
                     
@@ -110,7 +109,7 @@
 
             </div>
 
-            <div class="my-work-showcase flex-row-center">
+            <div id="myWork" class="my-work-showcase flex-row-center">
 
                 <div class="project"></div>
                 <div class="project"></div>
@@ -123,7 +122,7 @@
             </div>
 
 
-            <div class="contact-me flex-col-center">
+            <div id="contactMe" class="contact-me flex-col-center">
 
                 <p>Phone</p>
                 <p>Email</p>
@@ -132,7 +131,7 @@
             </div>
 
 
-            <div class="about-kyh flex-col-center">
+            <div id="aboutKyh" class="about-kyh flex-col-center">
 
                 <p>Om skolan</p>
                 <p>Kurser</p>
@@ -140,11 +139,10 @@
                 
             </div>
                 
-    
         </main>
 
     </div>
 
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
