@@ -17,40 +17,48 @@
     <!-- PAGE WRAPPER -->
     <div class="wrapper">   
 
-        <header id="header" class="header-large">
+        <header id="header" class="header-initial">
             <div class="logo">
                 <h1>D.</h1>
             </div>
+
+            <div id="hamburger" class="hamburger">
+                <i class="fa fa-hand-o-left fa-3x" aria-hidden="true"></i>
+            </div>
+
             <nav>
                 <ul id="navLinks" class="nav-links">
                     <li data-section="mySkills">
                         <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-                        My skills
+                        <p>My skills</p>
                     </li> 
                     <li data-section="myWork">
                         <i class="fa fa-archive fa-2x" aria-hidden="true"></i>
-                        My work
+                        <p>My work</p>
                     </li>                       
                     <li data-section="contactMe">
                         <i class="fa fa-id-card fa-2x" aria-hidden="true"></i>
-                        Contact me
+                        <p>Contact me</p>
                     </li>
                     <li data-section="aboutKyh">
                         <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
-                        Front End Developer på KYH
+                        <p>KYH</p>
                     </li> 
-                    
-                    <ul class="social-links">
-                        <li>
-                            <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
-                            Github
-                        </li>
-                        <li>
-                            <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                            LinkedIn
-                        </li>  
-                    </ul>
-                                 
+                    <li id="socialLinksToggle">
+                        <i class="fa fa-user fa-2x" aria-hidden="true"></i> 
+                        <p>Social links</p>
+                        <ul id="socialLinks" class="social-links hidden">
+                            <li>
+                                <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
+                                <a href="https://github.com/danielohrn">Github</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+                                <a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">LinkedIn</a>
+                            </li>  
+                        </ul>                 
+                    </li>
+                 
                 </ul>
             </nav>
         </header>
@@ -59,8 +67,22 @@
 
         <div id="presentation" class="presentation flex-col-center">
                 <div class="me">
+
+                    <!-- <p>
+                        <code>
+                            &lt;/About me>
+                        </code>
+                    </p> -->
+
                     <h1><span class="">D</span>aniel <span class="">Ö</span>hrn <span class="">H</span>asslöf,</h1>
-                    <h2>Front End Developer student</h2>
+                    <h2> < Front End Developer student /> </h2>
+
+                    <!-- <p>
+                         <code>
+                                &lt;/About me>
+                        </code>
+                    </p> -->
+
                 </div>
 
                 <div class="my-work-anchor flex-col-center">
@@ -104,8 +126,12 @@
                         <h2>Agile working</h2>                         
                     </div>
 
-                </div>
+                    <div class="skill">
+                        <img style="width: 70px" src="https://cdn.worldvectorlogo.com/logos/react.svg">
+                        <h2>React.js</h2>                         
+                    </div>
 
+                </div>
 
             </div>
 
@@ -121,7 +147,6 @@
 
             </div>
 
-
             <div id="contactMe" class="contact-me flex-col-center">
 
                 <p>Phone</p>
@@ -129,7 +154,6 @@
                 <p>LinkedIn</p>
                 
             </div>
-
 
             <div id="aboutKyh" class="about-kyh flex-col-center">
 
