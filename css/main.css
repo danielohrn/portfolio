@@ -4,32 +4,26 @@
 }
 
 header {
+    width: 100%; 
+    height: 100px;  
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;    
+    position: fixed;
+    top: 0px;
     transition: 0.6s ease; 
     z-index: 1; 
 }
 
+
 .header-initial {
-    width: 100%; 
-    height: 100px;  
-    display: flex; 
-    flex-direction: row;
-    justify-content: space-between;    
-    position: fixed;
-    top: 0px;
-    background: #2b2b2b; 
-    color: #fff; 
+    background: #ffffff; 
+    color: rgb(0, 0, 0); 
 }
 
 .header-scrolling {
-    width: 100%; 
-    height: 100px;  
-    display: flex; 
-    flex-direction: row;
-    justify-content: space-between;    
-    position: fixed;
-    top: 0px;
-    background: #2b2b2b54; 
-    color: #000; 
+    background: #ffffff54; 
+    color: rgb(0, 0, 0); 
 }
 
 header ul li:hover {
@@ -73,7 +67,7 @@ header nav ul li {
 }
 
 header nav ul li:hover {
-    background: rgb(151, 151, 151); 
+    background: rgb(255, 255, 255); 
     display: flex; 
 }
 
@@ -91,6 +85,11 @@ header nav ul li:hover {
     top: 100px; 
     color: #fff;
     background: #2b2b2b;
+    width: 210px; 
+}
+
+.social-links a {
+    color: #fff; 
 }
 
 .nav-text {
@@ -99,7 +98,45 @@ header nav ul li:hover {
 
 header nav ul li i {
     margin: 0 5px; 
+    color: rgb(0, 0, 0); 
+}
+
+.editor {
+    font-family: 'Source Code Pro';
+    width: 600px;
+    height: 360px;
+    background: #2b2b2b;
+    display: flex;
+    flex-direction: column; 
     color: #fff; 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.editor .top-bar {
+    width: 100%;
+    height: 20px; 
+    background: #cec7c7; 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.editor .line {
+    width: 100%; 
+    display: block; 
+}
+
+.me {
+    margin: 76px auto;
+    width: 278px;
+}
+
+.me h1 {
+    font-size: 23px; 
+}
+
+.me h2 {
+    font-size: 17px; 
 }
 
 #html5-icon {
@@ -119,6 +156,7 @@ main {
     display: flex; 
     flex-direction: column; 
     align-items: center; 
+    margin-top: 100px; 
 }
 
 main .my-skills {
@@ -128,7 +166,7 @@ main .my-skills {
     flex-direction: column; 
     justify-content: space-around; 
     align-items: center; 
-    background: #; 
+    border-bottom: 1px solid lightgray;  
 }
 
 .presentation {
@@ -141,14 +179,6 @@ main .my-skills {
     color: #000;
 }
 
-.presentation h1{
-    font-size: 5vw; 
-}
-
-.presentation h2{
-    font-size: 3vw; 
-}
-
 .initials {
     color: lightgray; 
     transition: 1s ease; 
@@ -156,7 +186,7 @@ main .my-skills {
 
 .my-work-anchor {
     position: relative; 
-    bottom: -35%; 
+    bottom: -7%; 
 }
 
 .my-work-anchor h2 {
@@ -188,6 +218,14 @@ main .my-skills {
     margin: 10px; 
 }
 
+.flex-col {
+    display: flex; 
+    flex-direction: column; 
+}
+
+.flex-justify-center {
+    justify-content: center; 
+}
 
 .flex-col-center {
     display: flex;
@@ -240,6 +278,21 @@ main .my-skills {
     height: 100vh;   
 }
 
+.content article {
+    min-width: 300px;   
+    margin: 10px 0; 
+    font-family: 'Open Sans';
+    color: #fff; 
+}
+
+.content article h2 {
+    font-size: 34px; 
+}
+
+.content article p {
+    font-size: 24px; 
+}
+
 
 
 /* MEDIA */ 
@@ -276,7 +329,7 @@ main .my-skills {
         top: 100px; 
         right: -500px; 
         flex-direction: column;
-        background: #2b2b2b;
+        background: inherit; 
         transition: all .5s ease; 
     }
 
@@ -285,7 +338,15 @@ main .my-skills {
         flex-direction: column;
     }
 
+    .my-work-anchor {
+        bottom: -4%; 
+    }
+
+    .editor {
+        width: 80%; 
+    }
+
     main {
-        margin: 0; 
+        margin-top: 100px; 
     }
 }

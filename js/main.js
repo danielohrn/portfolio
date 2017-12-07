@@ -45,29 +45,25 @@ const Page = (function(){
         scrollAnchorYpos: scrollAnchor.getBoundingClientRect().top
     }
 
-    // TODO: Clean up 
-    typeWriteHandler(document.querySelector('.me h1').innerText, document.querySelector('.me h1'), 100, true); 
-    typeWriteHandler(document.querySelector('.me h2').innerText, document.querySelector('.me h2'), 100, true); 
-    
-    function typeWriteHandler(phrase, target, speed = 1000, clearHTML = false){
-        console.log(clearHTML); 
+    function typeWrite(phrase, target, speed = 1000, clearHTML = false){
         let phraseToWrite = Array.from(phrase); 
-
+        let done = false; 
+        
         if(clearHTML) {
-            console.log(phrase)            
             target.innerHTML = ""; 
         }
 
         let counter = 0; 
 
         let interval = setInterval(function(){
-            typeWrite(); 
+            write(); 
         },speed); 
 
-        function typeWrite(){
+        function write(){
             if(counter >= phraseToWrite.length) {
-                clearInterval(interval); 
-                console.log('cleared'); 
+                clearInterval(interval);
+                done = true;  
+                return done; 
             } else {
                 target.innerHTML += phraseToWrite[counter];
                 counter++;
@@ -100,7 +96,8 @@ const Page = (function(){
    return {
        pageInfo,
        scroll,
-       getSectionPos
+       getSectionPos, 
+       typeWrite
    }
 
 })();
@@ -137,6 +134,33 @@ const HeaderModule = (function(){
             Page.scroll(Page.pageInfo.sections[target.dataset.section].yPos); 
         }
     }
+
+})();
+
+const IntroModule = (function(){
+
+    // TODO: Clean up 
+    const me = document.querySelector('.editor .me'); 
+    const name = me.querySelector('h1'); 
+    const frontEnd = me.querySelector('h2');
+    const decor = me.querySelectorAll('p'); 
+
+    me.style.display = 'none';     
+    
+    const code = document.querySelector('.editor .line #code');
+
+    window.onload = (function terminalIntro(){
+        Page.typeWrite(code.innerHTML, code, 140, true);
+        setTimeout(()=>{
+            me.style.display = ''; 
+            Page.typeWrite(decor[0].innerHTML, decor[0], 100, true); 
+            Page.typeWrite(frontEnd.innerHTML, frontEnd, 100, true); 
+            Page.typeWrite(name.innerHTML, name, 100, true); 
+            Page.typeWrite(decor[1].innerHTML, decor[1], 100, true);             
+            
+        },2500)
+    })(); 
+
 
 })();
 

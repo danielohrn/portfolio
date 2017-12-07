@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">  
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css"> 
+    <link rel="stylesheet" href="css/general.css">   
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Daniel</title>
@@ -65,23 +66,25 @@
     
         <main>
 
-        <div id="presentation" class="presentation flex-col-center">
-                <div class="me">
+            <div id="presentation" class="presentation flex-col-center">
 
-                    <!-- <p>
-                        <code>
-                            &lt;/About me>
-                        </code>
-                    </p> -->
-
-                    <h1><span class="">D</span>aniel <span class="">Ö</span>hrn <span class="">H</span>asslöf,</h1>
-                    <h2> < Front End Developer student /> </h2>
-
-                    <!-- <p>
-                         <code>
-                                &lt;/About me>
-                        </code>
-                    </p> -->
+                <div class="editor">
+                    <div class="top-bar">
+                        <i style="color: #ff0000b0; margin-left: 5px;" class="fa fa-circle" aria-hidden="true"></i>
+                        <i style="color: #f1af47" class="fa fa-circle" aria-hidden="true"></i>
+                        <i style="color: #34d034" class="fa fa-circle" aria-hidden="true"></i>                            
+                    </div>
+                    <div class="line">
+                       <span>$ </span><span id="code">dev.getInfo();</span>
+                    </div>
+                    <div class="line">
+                        <div class="me">
+                            <p>=============================</p>
+                            <h1>Daniel Öhrn Hasslöf,</h1>
+                            <h2>Front End Developer student</h2>
+                            <p>=============================</p>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -135,7 +138,7 @@
 
             </div>
 
-            <div id="myWork" class="my-work-showcase flex-row-center">
+            <div id="myWork" class="content my-work-showcase flex-row-center">
 
                 <div class="project"></div>
                 <div class="project"></div>
@@ -147,19 +150,51 @@
 
             </div>
 
-            <div id="contactMe" class="contact-me flex-col-center">
+            <div id="contactMe" class="content contact-me flex-col-center">
+                <article>
+                    <div class="text">
+                        <h2>Phone</h2>
+                        <p>Ring mig om du vill.</p>
+                    </div>
+                </article>
+        
+                <article>
+                    <div class="text">
+                        <h2>Email</h2>
+                        <p>Maila mig om du vill.</p>
+                    </div>
+                </article>
 
-                <p>Phone</p>
-                <p>Email</p>
-                <p>LinkedIn</p>
-                
+                <article>
+                    <div class="text">
+                        <h2>LinkedIn</h2>
+                        <p>Kolla min LinkedIn bre.</p>
+                    </div>
+                </article>
             </div>
 
-            <div id="aboutKyh" class="about-kyh flex-col-center">
+            <div id="aboutKyh" class="content about-kyh flex-col-center">
 
-                <p>Om skolan</p>
-                <p>Kurser</p>
-                <p>LIA</p>
+                <article>
+                    <div class="text">
+                        <h2>Om skolan</h2>
+                        <p>Här är lite info om skolan.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="text">
+                        <h2>Kurser</h2>
+                        <p>Här är info om kurserna.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="text">
+                        <h2>Kurser</h2>
+                        <p>Här är info om kurserna.</p>
+                    </div>
+                </article>
                 
             </div>
                 
