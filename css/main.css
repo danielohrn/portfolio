@@ -170,7 +170,7 @@ main .my-skills {
 .presentation {
     width: 100%; 
     height: 100vh; 
-    background: #fff;
+    background: url('../img/presentationBg.png');
     z-index: 0;
     border: 1px solid lightgray;
     font-family: 'Lobster', sans-serif; 
@@ -299,6 +299,8 @@ main .my-skills {
     border: 1px solid lightgray; 
     margin: 10px; 
     background: lightgray; 
+    background: url('https://www.colourbox.com/preview/9963379-come-back-later.jpg'); 
+    background-size: 100% auto; 
 }
 
 .hidden {

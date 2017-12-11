@@ -36,7 +36,8 @@ const Page = (function(){
             },
             contactMe: {
                 element: contactMe,                
-                yPos: contactMe.offsetTop
+                yPos: contactMe.offsetTop,
+                code: 'dev.getInfo();'
             },
             aboutKyh: {
                 element: aboutKyh,                
@@ -141,18 +142,13 @@ const HeaderModule = (function(){
 
 const IntroModule = (function(){
 
-
     const skillSpan = document.querySelector('.name span'); 
-    console.log(skillSpan); 
-
     let counter = 0; 
 
     function toggleSkill(targetElement, skillList){
         if(counter > skillList.length - 1) {
             counter = 0; 
-            console.log('reset counter', counter); 
         }
-
         targetElement.innerHTML = skillList[counter]; 
         counter++; 
     }
@@ -160,30 +156,6 @@ const IntroModule = (function(){
     setInterval(()=>{
         toggleSkill(skillSpan, Page.pageInfo.sections.presentation.skillList); 
     },1400)
-
-
-
-    // TODO: Clean up 
-    // const me = document.querySelector('.editor .me'); 
-    // const name = me.querySelector('h1'); 
-    // const frontEnd = me.querySelector('h2');
-    // const decor = me.querySelectorAll('p'); 
-
-    // me.style.display = 'none';     
-    
-    // const code = document.querySelector('.editor .line #code');
-
-    // window.onload = (function terminalIntro(){
-    //     Page.typeWrite(code.innerHTML, code, 140, true);
-    //     setTimeout(()=>{
-    //         me.style.display = ''; 
-    //         Page.typeWrite(decor[0].innerHTML, decor[0], 100, true); 
-    //         Page.typeWrite(frontEnd.innerHTML, frontEnd, 100, true); 
-    //         Page.typeWrite(name.innerHTML, name, 100, true); 
-    //         Page.typeWrite(decor[1].innerHTML, decor[1], 100, true);             
-            
-    //     },2500)
-    // })(); 
 
 })();
 
@@ -197,14 +169,48 @@ const SkillsModule = (function(){
         skill.classList.add('swoosh'); 
     })
 
-    mySkills.addEventListener('mouseenter', e => {
-        
-        skills.forEach(skill => {
-            skill.classList.remove('swoosh');
-            skill.classList.add('fade-in');            
-        })
+    window.addEventListener('scroll', e => {
+        if(window.scrollY >= Page.pageInfo.sections.mySkills.yPos / 2) {
+            skills.forEach(skill => {
+                skill.classList.remove('swoosh');
+                skill.classList.add('fade-in');            
+            })    
+        }
+    });
+})();
+
+
+const contactModule = (function(){
+    // TODO: Clean up 
+    const contactMe = document.querySelector('#contactMe'); 
+    const me = document.querySelector('.editor .me'); 
+    const code = document.querySelector('.editor .line #code');    
+
+    me.style.display = 'none';     
+
+    let introFinished = false; 
+    let printing = false; 
+
+    window.addEventListener('scroll', ()=>{
+        if(window.scrollY >= Page.pageInfo.sections.contactMe.yPos) {
+            terminalIntro(); 
+        }
     }); 
 
-})();
+    function terminalIntro(){
+        if(!introFinished && !printing) {
+            printing = true;
+            Page.typeWrite(Page.pageInfo.sections.contactMe.code, code, 140, true);        
+            setTimeout(()=>{
+                me.style.display = ''; 
+                introFinished = true; 
+                printing = false; 
+            },2500)
+        } else {
+            return false; 
+        }
+    }
+    
+})(); 
 
 
