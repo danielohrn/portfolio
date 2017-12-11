@@ -89,7 +89,6 @@ header nav ul li:hover {
 }
 
 .social-links a {
-    color: #fff; 
 }
 
 .nav-text {
@@ -215,7 +214,22 @@ main .my-skills {
     align-items: center; 
     width: 100px; 
     flex-wrap: wrap; 
-    margin: 10px; 
+    margin: 10px;  
+    transition: all .9s ease;  
+}
+
+.swoosh:nth-child(even) {
+    opacity: 0;
+    transform: translateY(500px);
+}
+
+.swoosh:nth-child(odd) {
+    opacity: 0;
+    transform: translateY(-500px);     
+}
+
+.fade-in {
+    transform: translateY(0px);     
 }
 
 .flex-col {
@@ -285,13 +299,13 @@ main .my-skills {
     color: #fff; 
 }
 
-.content article h2 {
+/* .content article h2 {
     font-size: 34px; 
 }
 
 .content article p {
     font-size: 24px; 
-}
+} */
 
 
 

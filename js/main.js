@@ -164,4 +164,24 @@ const IntroModule = (function(){
 
 })();
 
+const SkillsModule = (function(){
+
+    // DOM
+    const mySkills = Page.pageInfo.sections.mySkills.element;
+    const skills = mySkills.querySelectorAll('.skill'); 
+
+    skills.forEach(skill => {
+        skill.classList.add('swoosh'); 
+    })
+
+    mySkills.addEventListener('mouseenter', e => {
+        
+        skills.forEach(skill => {
+            skill.classList.remove('swoosh');
+            skill.classList.add('fade-in');            
+        })
+    }); 
+
+})();
+
 
