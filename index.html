@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">  
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css"> 
     <link rel="stylesheet" href="css/general.css">   
@@ -18,17 +16,12 @@
     <!-- PAGE WRAPPER -->
     <div class="wrapper">   
 
-        <header id="header" class="header-initial">
+        <header id="header" class="header-colapsed">
             <div class="logo">
                 <h1>D.</h1>
             </div>
-
-            <div id="hamburger" class="hamburger">
-                <i class="fa fa-hand-o-left fa-3x" aria-hidden="true"></i>
-            </div>
-
-            <nav>
-                <ul id="navLinks" class="nav-links">
+            <nav class="">
+                <ul id="navLinks" class="">
                     <li data-section="mySkills">
                         <i class="fa fa-star fa-2x" aria-hidden="true"></i>
                         <p>My skills</p>
@@ -48,7 +41,7 @@
                     <li id="socialLinksToggle">
                         <i class="fa fa-user fa-2x" aria-hidden="true"></i> 
                         <p>Social links</p>
-                        <ul id="socialLinks" class="social-links hidden">
+                        <!-- <ul id="socialLinks" class="social-links hidden">
                             <li>
                                 <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
                                 <a href="https://github.com/danielohrn">Github</a>
@@ -57,7 +50,7 @@
                                 <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
                                 <a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">LinkedIn</a>
                             </li>  
-                        </ul>                 
+                        </ul>                  -->
                     </li>
                  
                 </ul>
@@ -66,130 +59,13 @@
     
         <main>
 
-            <section id="presentation" class="presentation flex-col-center">
-
-                <div class="editor">
-                    <div class="top-bar">
-                        <i style="color: #ff0000b0; margin-left: 5px;" class="fa fa-circle" aria-hidden="true"></i>
-                        <i style="color: #f1af47" class="fa fa-circle" aria-hidden="true"></i>
-                        <i style="color: #34d034" class="fa fa-circle" aria-hidden="true"></i>                            
-                    </div>
-                    <div class="line">
-                       <span>$ </span><span id="code">dev.getInfo();</span>
-                    </div>
-                    <div class="line">
-                        <div class="me">
-                            <p>=============================</p>
-                            <h1>Daniel Öhrn Hasslöf,</h1>
-                            <h2>Front End Developer student</h2>
-                            <p>=============================</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="my-work-anchor flex-col-center">
-                    <h2>My work and skills</h2>
-                    <i id="scrollAnchor" data-target="720" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
-                </div>
-
+            <section>
+                <h1>HEJ</h1>
             </section>
 
-            <section id="mySkills" class="my-skills">
+            <section></section>
 
-                <div class="skills">
-                    
-                    <div class="skill">
-                        <i id="html5-icon" class="fa fa-html5 fa-4x" aria-hidden="true"></i> 
-                        <h2>HTML5</h2>  
-                    </div>
-    
-                    <div class="skill">
-                        <i id="css3-icon" class="fa fa-css3 fa-4x" aria-hidden="true"></i>   
-                        <h2>CSS3</h2>                          
-                    </div>
-    
-                    <div class="skill">
-                        <i id="js-icon" class="fa fa-heart fa-4x" aria-hidden="true"></i> 
-                        <h2>Javascript/ES2015</h2>                         
-                    </div>
-
-                    <div class="skill">
-                        <i class="fa fa-git fa-4x" aria-hidden="true"></i>
-                        <h2>Git</h2>                           
-                    </div>
-
-                    <div class="skill">
-                        <i class="fa fa-github-alt fa-4x" aria-hidden="true"></i>
-                        <h2>Github</h2>                          
-                    </div>
-
-                    <div class="skill">
-                        <i class="fa fa-users fa-4x" aria-hidden="true"></i>
-                        <h2>Agile working</h2>                         
-                    </div>
-
-                    <div class="skill">
-                        <img style="width: 70px" src="https://cdn.worldvectorlogo.com/logos/react.svg">
-                        <h2>React.js</h2>                         
-                    </div>
-
-                </div>
-
-            </section>
-
-            <section id="myWork" class="content my-work-showcase flex-row-center">
-
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-                
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-
-            </section>
-
-            <section id="contactMe" class="content contact-me flex-col-center">
-                    <div class="editor">
-                        <div class="top-bar">
-                            <i style="color: #ff0000b0; margin-left: 5px;" class="fa fa-circle" aria-hidden="true"></i>
-                            <i style="color: #f1af47" class="fa fa-circle" aria-hidden="true"></i>
-                            <i style="color: #34d034" class="fa fa-circle" aria-hidden="true"></i> 
-                        </div>
-                        <div class="line">
-                            <span>$ </span><span id="code">dev.getInfo();</span>
-                        </div>
-                        <div class="line">
-                            <h2>Phone</h2>
-                            <p>+46736411634</p>
-                        </div>
-                        <div class="line">
-                            <h2>Email</h2>
-                            <p>dhasslof@gmail.com</p>
-                        </div>
-                        <div class="line">
-                            <h2>LinkedIn</h2>                                
-                        </div>
-                    </div>
-            </section>
-            <section id="aboutKyh" class="content about-kyh flex-col-center">
-
-                <article>
-                    <div class="text">
-                        <h2>KYH Front end developer</h2>
-                        <p>Courses including HTML, CSS, JavaScript with popular frameworks, backend programming and UI/UX.</p>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="text">
-                        <h2>LIA</h2>
-                        <p>Will be doing work experience in the fall of 2018.</p>
-                    </div>
-                </article>
-                
-            </section>
+            <section></section>
                 
         </main>
 
