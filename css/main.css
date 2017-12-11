@@ -66,14 +66,13 @@ header nav ul li {
     font-family: 'Source Code Pro';     
 }
 
-header nav ul li:hover {
-    background: rgb(255, 255, 255); 
-    display: flex; 
+.nav-links p:hover {
+    background: #5fc35f; 
 }
 
 #socialLinksToggle {
-    padding: 0 50px; 
-    margin: 0; 
+    /* padding: 0 50px; 
+    margin: 0;  */
     position: relative;
 }
 
@@ -81,14 +80,14 @@ header nav ul li:hover {
 .social-links {
     display: block;
     position: absolute;
-    right: 0px;
-    top: 100px; 
-    color: #fff;
-    background: #2b2b2b;
+    top: 90px; 
+    color: #000;
+    background: #fff;
     width: 210px; 
 }
 
 .social-links a {
+    color: #000; 
 }
 
 .nav-text {
@@ -178,14 +177,40 @@ main .my-skills {
     color: #000;
 }
 
+.presentation .name {
+    position: relative; 
+    top: -100px; 
+}
+
+.presentation .name h2 {
+    font-size: 2em; 
+}
+
+.presentation .name h1 {
+    font-size: 4em; 
+    display: inline-block;
+    padding: 10px; 
+    background: #5fc35f; 
+    margin: 10px 0; 
+}
+
+
+.name span {
+    background: #5fc35f; 
+    padding: 0px 10px; 
+    width: 150px; 
+    display: inline-block; 
+    text-align: center; 
+}
+
 .initials {
     color: lightgray; 
     transition: 1s ease; 
 }
 
 .my-work-anchor {
-    position: relative; 
-    bottom: -7%; 
+    position: absolute; 
+    bottom: 0%; 
 }
 
 .my-work-anchor h2 {
@@ -293,7 +318,7 @@ main .my-skills {
 }
 
 .content article {
-    min-width: 300px;   
+    width: 350px;   
     margin: 10px 0; 
     font-family: 'Open Sans';
     color: #fff; 
@@ -352,8 +377,8 @@ main .my-skills {
         flex-direction: column;
     }
 
-    .my-work-anchor {
-        bottom: -4%; 
+    .presentation .name {
+        width: 90vw; 
     }
 
     .editor {

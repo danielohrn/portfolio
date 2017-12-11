@@ -23,7 +23,8 @@ const Page = (function(){
         sections: {
             presentation: {
                 element: presentation,
-                yPos: presentation.offsetTop
+                yPos: presentation.offsetTop,
+                skillList: ['JavaScript', 'HTML5', 'CSS', 'React', 'Node']
             },
             mySkills: {
                 element: mySkills,                
@@ -93,6 +94,7 @@ const Page = (function(){
         }
     })
 
+    // API for other modules 
    return {
        pageInfo,
        scroll,
@@ -139,28 +141,49 @@ const HeaderModule = (function(){
 
 const IntroModule = (function(){
 
+
+    const skillSpan = document.querySelector('.name span'); 
+    console.log(skillSpan); 
+
+    let counter = 0; 
+
+    function toggleSkill(targetElement, skillList){
+        if(counter > skillList.length - 1) {
+            counter = 0; 
+            console.log('reset counter', counter); 
+        }
+
+        targetElement.innerHTML = skillList[counter]; 
+        counter++; 
+    }
+
+    setInterval(()=>{
+        toggleSkill(skillSpan, Page.pageInfo.sections.presentation.skillList); 
+    },1400)
+
+
+
     // TODO: Clean up 
-    const me = document.querySelector('.editor .me'); 
-    const name = me.querySelector('h1'); 
-    const frontEnd = me.querySelector('h2');
-    const decor = me.querySelectorAll('p'); 
+    // const me = document.querySelector('.editor .me'); 
+    // const name = me.querySelector('h1'); 
+    // const frontEnd = me.querySelector('h2');
+    // const decor = me.querySelectorAll('p'); 
 
-    me.style.display = 'none';     
+    // me.style.display = 'none';     
     
-    const code = document.querySelector('.editor .line #code');
+    // const code = document.querySelector('.editor .line #code');
 
-    window.onload = (function terminalIntro(){
-        Page.typeWrite(code.innerHTML, code, 140, true);
-        setTimeout(()=>{
-            me.style.display = ''; 
-            Page.typeWrite(decor[0].innerHTML, decor[0], 100, true); 
-            Page.typeWrite(frontEnd.innerHTML, frontEnd, 100, true); 
-            Page.typeWrite(name.innerHTML, name, 100, true); 
-            Page.typeWrite(decor[1].innerHTML, decor[1], 100, true);             
+    // window.onload = (function terminalIntro(){
+    //     Page.typeWrite(code.innerHTML, code, 140, true);
+    //     setTimeout(()=>{
+    //         me.style.display = ''; 
+    //         Page.typeWrite(decor[0].innerHTML, decor[0], 100, true); 
+    //         Page.typeWrite(frontEnd.innerHTML, frontEnd, 100, true); 
+    //         Page.typeWrite(name.innerHTML, name, 100, true); 
+    //         Page.typeWrite(decor[1].innerHTML, decor[1], 100, true);             
             
-        },2500)
-    })(); 
-
+    //     },2500)
+    // })(); 
 
 })();
 
