@@ -14,59 +14,85 @@
 <body>
 
     <!-- PAGE WRAPPER -->
-    <div class="wrapper">   
-
-        <header id="header" class="header-colapsed">
+    <div class="wrapper"> 
+        <!-- HEADER -->  
+        <header id="header">
+            <!-- LOGO -->
             <div class="logo">
                 <h1>D.</h1>
             </div>
-            <nav class="">
-                <ul id="navLinks" class="">
+            <!-- LOGO END -->
+            <!-- NAV -->
+            <nav>
+                <ul id="navLinks">
                     <li data-section="mySkills">
                         <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-                        <p>My skills</p>
                     </li> 
                     <li data-section="myWork">
                         <i class="fa fa-archive fa-2x" aria-hidden="true"></i>
-                        <p>My work</p>
                     </li>                       
                     <li data-section="contactMe">
                         <i class="fa fa-id-card fa-2x" aria-hidden="true"></i>
-                        <p>Contact me</p>
                     </li>
                     <li data-section="aboutKyh">
                         <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
-                        <p>KYH</p>
                     </li> 
-                    <li id="socialLinksToggle">
-                        <i class="fa fa-user fa-2x" aria-hidden="true"></i> 
-                        <p>Social links</p>
-                        <!-- <ul id="socialLinks" class="social-links hidden">
-                            <li>
-                                <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
-                                <a href="https://github.com/danielohrn">Github</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                                <a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">LinkedIn</a>
-                            </li>  
-                        </ul>                  -->
-                    </li>
-                 
-                </ul>
+                </ul>    
             </nav>
+            <!-- NAV END -->
+            <ul id="socialLinks">
+                <li>
+                    <a href="https://github.com/danielohrn">
+                        <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">
+                        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                </li>  
+            </ul>     
         </header>
+        <!-- HEADER END -->
     
         <main>
+            <section id="presentation" class="content">
+                <article>
+                       <p>Hi, im</p>
+                       <strong>Daniel.</strong>
+                    <p>I'm a front end developer student with skills in <span id="skillList">JavaScript</span></p>
+                </article>
 
-            <section>
-                <h1>HEJ</h1>
+
+                <div class="my-work-anchor flex-col justify-center align-center">
+                        <h2>My work and skills</h2>
+                        <i id="scrollAnchor" data-target="720" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
+                    </div>
             </section>
 
-            <section></section>
+            <section id="mySkills" class="content">
+                <article>
 
-            <section></section>
+                </article>
+            </section>
+
+            <section id="myWork" class="content">
+                <article>
+
+                </article>
+            </section>
                 
+            <section id="contactMe" class="content">
+                <article>
+
+                </article>
+            </section>
+
+            <section id="aboutKYH" class="content">
+                <article>
+
+                </article>
+            </section>
         </main>
 
     </div>
