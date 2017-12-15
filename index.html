@@ -14,12 +14,10 @@
     <title>Daniel</title>
 </head>
 <body>
-
     <!-- PAGE WRAPPER -->
     <div class="wrapper">   
-
         <header id="header" class="header-initial">
-            <div class="logo">
+            <div class="logo flex-row justify-center align-center">
                 <h1>D.</h1>
             </div>
 
@@ -65,18 +63,17 @@
         </header>
     
         <main>
-
-            <section id="presentation" class="presentation flex-col-center">
+            <section id="presentation" class="presentation flex-col justify-center align-center">
 
                 <div class="name">
                     <h2>Hey, im</h2>
                     <h1>DANIEL.</h1>
                     <h2>
-                        I'm a front end developer student with skills in <span>JavaScript</span>
+                        I'm a front end developer student with skills in <span id="skillList">JavaScript</span>
                     </h2>
                 </div>
 
-                <div class="my-work-anchor flex-col-center">
+                <div class="my-work-anchor flex-col justify-center align-center">
                     <h2>My work and skills</h2>
                     <i id="scrollAnchor" data-target="720" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
                 </div>
@@ -84,48 +81,52 @@
 
             <section id="mySkills" class="my-skills">
 
-                <div class="skills">
+                    <!-- flex-col justify-space-around align-center -->
+
+                <div class="skills-container">
                     
                     <div class="skill">
-                        <i id="html5-icon" class="fa fa-html5 fa-4x" aria-hidden="true"></i> 
-                        <h2>HTML5</h2>  
+                        <h2>HTML5</h2> 
+                        <i id="html5-icon" class="fa fa-html5 fa-5x" aria-hidden="true"></i> 
+                         
                     </div>
     
                     <div class="skill">
-                        <i id="css3-icon" class="fa fa-css3 fa-4x" aria-hidden="true"></i>   
-                        <h2>CSS3</h2>                          
+                        <h2>CSS3</h2> 
+                        <i id="css3-icon" class="fa fa-css3 fa-5x" aria-hidden="true"></i>   
+                                                 
                     </div>
     
                     <div class="skill">
-                        <i id="js-icon" class="fa fa-heart fa-4x" aria-hidden="true"></i> 
-                        <h2>Javascript/ES2015</h2>                         
+                        <h2>Javascript/ES2015</h2>
+                        <i id="js-icon" class="fa fa-heart fa-5x" aria-hidden="true"></i> 
+                                                 
                     </div>
 
                     <div class="skill">
-                        <i class="fa fa-git fa-4x" aria-hidden="true"></i>
                         <h2>Git</h2>                           
+                        <i class="fa fa-git fa-5x" aria-hidden="true"></i>
                     </div>
 
                     <div class="skill">
-                        <i class="fa fa-github-alt fa-4x" aria-hidden="true"></i>
-                        <h2>Github</h2>                          
+                        <h2>Github</h2>
+                        <i class="fa fa-github-alt fa-5x" aria-hidden="true"></i>                       
                     </div>
 
                     <div class="skill">
-                        <i class="fa fa-users fa-4x" aria-hidden="true"></i>
-                        <h2>Agile working</h2>                         
+                        <h2>Agile working</h2>
+                        <i class="fa fa-users fa-5x" aria-hidden="true"></i>                       
                     </div>
 
                     <div class="skill">
-                        <img style="width: 70px" src="https://cdn.worldvectorlogo.com/logos/react.svg">
-                        <h2>React.js</h2>                         
+                        <h2>React.js</h2>
+                        <img style="width: 70px" src="https://cdn.worldvectorlogo.com/logos/react.svg">                   
                     </div>
 
                 </div>
-
             </section>
 
-            <section id="myWork" class="content my-work-showcase flex-row-center">
+            <section id="myWork" class="content flex-row justify-center align-center wrap">
 
                 <div class="project"></div>
                 <div class="project"></div>
@@ -137,7 +138,7 @@
 
             </section>
 
-            <section id="contactMe" class="content contact-me flex-col-center">
+            <section id="contactMe" class="content contact-me flex-col justify-center align-center">
                     <div class="editor">
                         <div class="top-bar">
                             <i style="color: #ff0000b0; margin-left: 5px;" class="fa fa-circle" aria-hidden="true"></i>
@@ -165,7 +166,8 @@
                               
                     </div>
             </section>
-            <section id="aboutKyh" class="content about-kyh flex-col-center">
+
+            <section id="aboutKyh" class="content about-kyh flex-col justify-center align-center">
 
                 <article>
                     <div class="text">
@@ -179,14 +181,10 @@
                         <h2>LIA / Work experience</h2>
                         <p>Will be doing work experience in the fall of 2018.</p>
                     </div>
-                </article>
-                
-            </section>
-                
+                </article>    
+            </section>      
         </main>
-
     </div>
-
     <script src="js/main.js"></script>
 </body>
 </html>

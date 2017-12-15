@@ -1,53 +1,46 @@
+/* ========================================== */ 
+                /* GLOBAL */ 
+/* ========================================== */ 
 .wrapper {
-    display: flex; 
     font-family: 'Ubuntu', sans-serif;     
 }
+
+.fa:hover {
+    cursor: pointer; 
+}
+/* ========================================== */ 
+
+
+/* ========================================== */ 
+            /* START HEADER AND NAV */ 
+/* ========================================== */ 
 
 header {
     width: 100%; 
     height: 100px;  
+    color: #000; 
+    top: 0px;
+    transition: all 0.6s ease; 
+    z-index: 1; 
+
     display: flex; 
     flex-direction: row;
     justify-content: space-between;    
     position: fixed;
-    top: 0px;
-    transition: 0.6s ease; 
-    z-index: 1; 
 }
-
 
 .header-initial {
     background: #ffffff; 
-    color: rgb(0, 0, 0); 
 }
 
 .header-scrolling {
     background: #ffffff54; 
-    color: rgb(0, 0, 0); 
 }
-
-header ul li:hover {
-    cursor: pointer; 
-}
-
 
 header .logo {
-    width: 100px; 
-    display: flex; 
-    flex-direction: row; 
-    align-items: center; 
-    justify-content: center; 
+    width: 100px;
     font-size: 60px; 
 }
-
-.hamburger {
-    display: none; 
-}
-
-.hamburger img {
-    width: 50px;
-}
-
 
 header nav {
     display: flex; 
@@ -63,7 +56,13 @@ header nav ul li {
     margin: 10px; 
     display: flex; 
     align-items: center; 
-    font-family: 'Source Code Pro';     
+    font-family: 'Source Code Pro';
+    cursor: pointer;     
+}
+
+header nav ul li i {
+    margin: 0 5px; 
+    color: rgb(0, 0, 0); 
 }
 
 .nav-links p:hover {
@@ -71,11 +70,8 @@ header nav ul li {
 }
 
 #socialLinksToggle {
-    /* padding: 0 50px; 
-    margin: 0;  */
     position: relative;
 }
-
 
 .social-links {
     display: block;
@@ -90,15 +86,189 @@ header nav ul li {
     color: #000; 
 }
 
-.nav-text {
-    display: initial; 
+.hidden {
+    display: none; 
 }
 
-header nav ul li i {
-    margin: 0 5px; 
-    color: rgb(0, 0, 0); 
+/* Hamburger nav-menu for small screens */ 
+.hamburger {
+    display: none; 
 }
 
+/* ========================================== */ 
+        /* END HEADER AND NAV */ 
+/* ========================================== */ 
+
+
+/* ========================================== */ 
+                /* MAIN START */ 
+/* ========================================== */ 
+
+main {
+    margin-top: 100px; 
+}
+
+main section {
+    min-height: 100vh; 
+    width: 100%; 
+    border-top: 1px solid lightgray;
+}
+
+/* ========================================== */ 
+        /* PRESENTATION SECTION START  */ 
+/* ========================================== */ 
+
+.presentation {
+    background: url('../img/presentationBg.png');  
+    font-family: 'Lobster', sans-serif; 
+    color: #000;
+}
+
+.presentation .name {
+    position: relative; 
+    top: -100px; 
+    margin: 0 20px; 
+}
+
+.presentation .name h2 {
+    font-size: 2em; 
+}
+
+.presentation .name h1 {
+    font-size: 4em; 
+    display: inline-block;
+    padding: 10px; 
+    background: #5fc35f; 
+    margin: 10px 0; 
+}
+
+.name span {
+    background: #5fc35f; 
+    padding: 0px 10px; 
+    width: 150px; 
+    display: inline-block; 
+    text-align: center; 
+}
+
+/* ARROW / ANCHOR for scrolling down or up the page */ 
+.my-work-anchor {
+    position: absolute; 
+    bottom: 0%; 
+}
+
+.my-work-anchor h2 {
+    font-size: 20px; 
+}
+
+.arrow-flipped {
+    position: fixed; 
+    top: 100px; 
+    transform: rotate(180deg); 
+    opacity: .5; 
+}
+/* ========================================== */ 
+        /* PRESENTATION SECTION END */ 
+/* ========================================== */ 
+
+/* ========================================== */ 
+        /* MY SKILLS SECTION START */ 
+/* ========================================== */ 
+
+.skills-container {
+    border: 1px solid black; 
+    padding: 10px 0; 
+
+}
+
+.skill {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    flex-wrap: wrap; 
+    width: 200px; 
+    margin: 10px;  
+    border: 1px solid black; 
+    transition: all .9s ease;  
+}
+
+#html5-icon {
+    color: #e44c27; 
+}
+
+#css3-icon {
+    color: #0c73b8; 
+}
+
+#js-icon {
+    color: #fae22d; 
+}
+
+.off-screen:nth-child(even) {
+    opacity: 0;
+    transform: translateX(500px);
+}
+
+.off-screen:nth-child(odd) {
+    opacity: 0;
+    transform: translateX(-500px);     
+}
+
+.fade-in {
+    transform: translateX(0px);     
+}
+/* ========================================== */ 
+            /* MY SKILLS SECTION END */ 
+/* ========================================== */ 
+
+
+/* ========================================== */ 
+            /* MY WORK SECTION START */ 
+/* ========================================== */ 
+#myWork {
+
+}
+
+.project {
+    width: 300px; 
+    height: 300px; 
+    border: 1px solid lightgray; 
+    margin: 10px; 
+    background: lightgray; 
+}
+/* ========================================== */ 
+            /* MY WORK SECTION END */ 
+/* ========================================== */ 
+
+
+/* ========================================== */ 
+            /* CONTACT ME SECTION START */ 
+/* ========================================== */ 
+#contactMe {
+    background: rgb(230, 230, 230); 
+}
+/* ========================================== */ 
+            /* CONTACT ME SECTION END */ 
+/* ========================================== */ 
+
+/* ========================================== */ 
+            /* ABOUT SCHOOL SECTION START */ 
+/* ========================================== */ 
+#aboutKyh {
+    background: rgb(231, 116, 81); 
+}
+/* ========================================== */ 
+            /* MY WORK SECTION END */ 
+/* ========================================== */ 
+
+.content article {
+    width: 350px;   
+    margin: 10px 0; 
+    font-family: 'Open Sans';
+    color: #fff; 
+}
+
+/* EDITOR / TERMINAL design */ 
 .editor {
     font-family: 'Source Code Pro';
     width: 600px;
@@ -136,204 +306,6 @@ header nav ul li i {
 .me h2 {
     font-size: 17px; 
 }
-
-#html5-icon {
-    color: #e44c27; 
-}
-
-#css3-icon {
-    color: #0c73b8; 
-}
-
-#js-icon {
-    color: #fae22d; 
-}
-
-main {
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    margin-top: 100px; 
-}
-
-main .my-skills {
-    width: 100%; 
-    height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-around; 
-    align-items: center; 
-    border-bottom: 1px solid lightgray;  
-}
-
-.presentation {
-    width: 100%; 
-    height: 100vh; 
-    background: url('../img/presentationBg.png');
-    z-index: 0;
-    border: 1px solid lightgray;
-    font-family: 'Lobster', sans-serif; 
-    color: #000;
-}
-
-.presentation .name {
-    position: relative; 
-    top: -100px; 
-}
-
-.presentation .name h2 {
-    font-size: 2em; 
-}
-
-.presentation .name h1 {
-    font-size: 4em; 
-    display: inline-block;
-    padding: 10px; 
-    background: #5fc35f; 
-    margin: 10px 0; 
-}
-
-
-.name span {
-    background: #5fc35f; 
-    padding: 0px 10px; 
-    width: 150px; 
-    display: inline-block; 
-    text-align: center; 
-}
-
-.initials {
-    color: lightgray; 
-    transition: 1s ease; 
-}
-
-.my-work-anchor {
-    position: absolute; 
-    bottom: 0%; 
-}
-
-.my-work-anchor h2 {
-    font-size: 20px; 
-}
-
-.arrow-flipped {
-    position: fixed; 
-    top: 100px; 
-    transform: rotate(180deg); 
-    opacity: .5; 
-}
-
-.skills {
-    display: flex; 
-    flex-direction: row; 
-    flex-wrap: wrap; 
-    justify-content: space-around; 
-    align-items: center; 
-}
-
-.skill {
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    width: 100px; 
-    flex-wrap: wrap; 
-    margin: 10px;  
-    transition: all .9s ease;  
-}
-
-.swoosh:nth-child(even) {
-    opacity: 0;
-    transform: translateY(500px);
-}
-
-.swoosh:nth-child(odd) {
-    opacity: 0;
-    transform: translateY(-500px);     
-}
-
-.fade-in {
-    transform: translateY(0px);     
-}
-
-.flex-col {
-    display: flex; 
-    flex-direction: column; 
-}
-
-.flex-justify-center {
-    justify-content: center; 
-}
-
-.flex-col-center {
-    display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.flex-row-center {
-    display: flex;
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: center; 
-}
-
-.fa:hover {
-    cursor: pointer; 
-}
-
-
-.my-work-showcase {
-    width: 100%; 
-    flex-wrap: wrap; 
-    background: #fff;
-    min-height: 100vh;  
-    padding: 40px 0;
-}
-
-.project {
-    width: 300px; 
-    height: 300px; 
-    border: 1px solid lightgray; 
-    margin: 10px; 
-    background: lightgray; 
-    background: url('https://www.colourbox.com/preview/9963379-come-back-later.jpg'); 
-    background-size: 100% auto; 
-}
-
-.hidden {
-    display: none; 
-}
-
-.contact-me {
-    width: 100%; 
-    background: rgb(230, 230, 230); 
-    height: 100vh; 
-}
-
-.about-kyh {
-    width: 100%; 
-    background: rgb(231, 116, 81); 
-    height: 100vh;   
-}
-
-.content article {
-    width: 350px;   
-    margin: 10px 0; 
-    font-family: 'Open Sans';
-    color: #fff; 
-}
-
-/* .content article h2 {
-    font-size: 34px; 
-}
-
-.content article p {
-    font-size: 24px; 
-} */
-
 
 
 /* MEDIA */ 
