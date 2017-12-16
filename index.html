@@ -17,7 +17,7 @@
     <!-- PAGE WRAPPER -->
     <div class="wrapper">   
         <header id="header" class="header-initial">
-            <div class="logo flex-row justify-center align-center">
+            <div class="logo">
                 <h1>D.</h1>
             </div>
 
@@ -29,78 +29,86 @@
                 <ul id="navLinks" class="nav-links">
                     <li data-section="mySkills">
                         <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-                        <p>My skills</p>
                     </li> 
                     <li data-section="myWork">
                         <i class="fa fa-archive fa-2x" aria-hidden="true"></i>
-                        <p>My work</p>
                     </li>                       
                     <li data-section="contactMe">
                         <i class="fa fa-id-card fa-2x" aria-hidden="true"></i>
-                        <p>Contact me</p>
                     </li>
                     <li data-section="aboutKyh">
                         <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
-                        <p>KYH</p>
                     </li> 
-                    <li id="socialLinksToggle">
-                        <i class="fa fa-user fa-2x" aria-hidden="true"></i> 
-                        <p>Social links</p>
-                        <ul id="socialLinks" class="social-links hidden">
-                            <li>
-                                <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
-                                <a href="https://github.com/danielohrn">Github</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                                <a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">LinkedIn</a>
-                            </li>  
-                        </ul>                 
-                    </li>
-                 
-                </ul>
+                </ul>  
             </nav>
+            <ul id="socialLinks">
+                <li>
+                    <a href="https://github.com/danielohrn">
+                        <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">
+                        <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
+                    </a>
+                </li>  
+            </ul> 
         </header>
     
         <main>
-            <section id="presentation" class="presentation flex-col justify-center align-center">
+            <section id="presentation" class="page-section">
 
-                <div class="name">
-                    <h2>Hey, im</h2>
-                    <h1>DANIEL.</h1>
-                    <h2>
-                        I'm a front end developer student with skills in <span id="skillList">JavaScript</span>
-                    </h2>
-                </div>
-
-                <div class="my-work-anchor flex-col justify-center align-center">
-                    <h2>My work and skills</h2>
-                    <i id="scrollAnchor" data-target="720" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
-                </div>
+                    <div class="name">
+                        <h2>Hey, im <em>DANIEL.</em></h2>
+                        <p>I'm a front end developer student with skills in <span id="skillList">JavaScript</span></p>
+                        <p>I am currently studying year one of the Front end development program at KYH.</p>
+                        <p>I love to code, especially in JavaScript and React.</p>
+                        <a class="btn" href="#mySkills">Check out my skills and my work
+                            <i class="fa fa-hand-o-down fa-1x" aria-hidden="true"></i>
+                        </a>
+                    </div>
             </section>
 
-            <section id="mySkills" class="my-skills">
-
-                    <!-- flex-col justify-space-around align-center -->
-
-                <div class="skills-container">
-                    
+            <section id="mySkills" class="page-section">   
+                <div class="skills-container flex-row justify-center wrap">      
                     <div class="skill">
-                        <h2>HTML5</h2> 
-                        <i id="html5-icon" class="fa fa-html5 fa-5x" aria-hidden="true"></i> 
-                         
+                        <div class="skill-header flex-col justify-center align-center">
+                            <i id="html5-icon" class="fa fa-html5 fa-5x" aria-hidden="true"></i> 
+                            <h2>HTML5</h2> 
+                        </div>
+                        <div class="skill-description flex-col justify-center align-center">
+                            <p>Advanced.</p>
+                        </div>
                     </div>
     
                     <div class="skill">
-                        <h2>CSS3</h2> 
-                        <i id="css3-icon" class="fa fa-css3 fa-5x" aria-hidden="true"></i>   
-                                                 
+                        <div class="skill-header flex-col justify-center align-center">
+                            <i id="css3-icon" class="fa fa-css3 fa-5x" aria-hidden="true"></i>   
+                            <h2>CSS3</h2>  
+                        </div>
+                        <div class="skill-description flex-col justify-center align-center">
+                            <p>Advanced.</p>
+                        </div>                                                 
                     </div>
     
                     <div class="skill">
-                        <h2>Javascript/ES2015</h2>
-                        <i id="js-icon" class="fa fa-heart fa-5x" aria-hidden="true"></i> 
-                                                 
+                        <div class="skill-header flex-col justify-center align-center">
+                            <i id="js-icon" class="fa fa-heart fa-5x" aria-hidden="true"></i> 
+                            <h2>JavaScript/ES2015</h2>
+                        </div>
+                        <div class="skill-description flex-col justify-center align-center">
+                            <p>Advanced.</p>
+                        </div>                        
+                    </div>
+
+                    <div class="skill">
+                        <div class="skill-header flex-col justify-center align-center">
+                            <img style="width: 70px" src="https://cdn.worldvectorlogo.com/logos/react.svg">                   
+                            <h2>React.js</h2>
+                        </div>
+                        <div class="skill-description flex-col justify-center align-center">
+                            <p>Beginner.</p>
+                        </div> 
                     </div>
 
                     <div class="skill">
@@ -118,15 +126,11 @@
                         <i class="fa fa-users fa-5x" aria-hidden="true"></i>                       
                     </div>
 
-                    <div class="skill">
-                        <h2>React.js</h2>
-                        <img style="width: 70px" src="https://cdn.worldvectorlogo.com/logos/react.svg">                   
-                    </div>
 
                 </div>
             </section>
 
-            <section id="myWork" class="content flex-row justify-center align-center wrap">
+            <section id="myWork" class="page-section">
 
                 <div class="project"></div>
                 <div class="project"></div>
@@ -138,7 +142,7 @@
 
             </section>
 
-            <section id="contactMe" class="content contact-me flex-col justify-center align-center">
+            <section id="contactMe" class="page-section">
                     <div class="editor">
                         <div class="top-bar">
                             <i style="color: #ff0000b0; margin-left: 5px;" class="fa fa-circle" aria-hidden="true"></i>
@@ -167,7 +171,7 @@
                     </div>
             </section>
 
-            <section id="aboutKyh" class="content about-kyh flex-col justify-center align-center">
+            <section id="aboutKyh" class="page-section">
 
                 <article>
                     <div class="text">

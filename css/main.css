@@ -2,11 +2,21 @@
                 /* GLOBAL */ 
 /* ========================================== */ 
 .wrapper {
-    font-family: 'Ubuntu', sans-serif;     
+    font-family: 'Open Sans', sans-serif;     
 }
 
 .fa:hover {
     cursor: pointer; 
+}
+
+.page-section {
+    min-height: 100vh; 
+    width: 100%; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    border-top: 1px solid lightgray; 
 }
 /* ========================================== */ 
 
@@ -16,16 +26,16 @@
 /* ========================================== */ 
 
 header {
-    width: 100%; 
-    height: 100px;  
-    color: #000; 
-    top: 0px;
+    width: 70px; 
+    height: 100vh;  
+    left: 0px;
     transition: all 0.6s ease; 
     z-index: 1; 
-
+    background: url('../img/stardust.png'); 
     display: flex; 
-    flex-direction: row;
-    justify-content: space-between;    
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;    
     position: fixed;
 }
 
@@ -38,31 +48,27 @@ header {
 }
 
 header .logo {
-    width: 100px;
     font-size: 60px; 
 }
 
 header nav {
-    display: flex; 
-}
-
-header nav ul {
-    display: flex; 
+    display: flex;
     flex-direction: row; 
 }
 
-header nav ul li {
-    padding: 2px; 
-    margin: 10px; 
-    display: flex; 
-    align-items: center; 
+header nav ul {
+
+}
+
+header ul li {
     font-family: 'Source Code Pro';
     cursor: pointer;     
+    margin: 20px 0; 
 }
 
 header nav ul li i {
     margin: 0 5px; 
-    color: rgb(0, 0, 0); 
+    //color: rgb(0, 0, 0); 
 }
 
 .nav-links p:hover {
@@ -105,40 +111,31 @@ header nav ul li i {
 /* ========================================== */ 
 
 main {
-    margin-top: 100px; 
-}
-
-main section {
-    min-height: 100vh; 
-    width: 100%; 
-    border-top: 1px solid lightgray;
+    margin-left: 70px; 
+    //background: url('../img/stardust.png')
 }
 
 /* ========================================== */ 
         /* PRESENTATION SECTION START  */ 
 /* ========================================== */ 
 
-.presentation {
-    background: url('../img/presentationBg.png');  
-    font-family: 'Lobster', sans-serif; 
-    color: #000;
-}
-
-.presentation .name {
-    position: relative; 
-    top: -100px; 
+.name {
     margin: 0 20px; 
 }
 
-.presentation .name h2 {
+.btn {
+    padding: 10px; 
+    border: 1px solid green; 
+    display: inline-block; 
+    color: #000;
+}
+
+.name h2 {
     font-size: 2em; 
 }
 
-.presentation .name h1 {
-    font-size: 4em; 
-    display: inline-block;
-    padding: 10px; 
-    background: #5fc35f; 
+.name p {
+    font-size: 1.3em; 
     margin: 10px 0; 
 }
 
@@ -162,7 +159,7 @@ main section {
 
 .arrow-flipped {
     position: fixed; 
-    top: 100px; 
+    top: 0px; 
     transform: rotate(180deg); 
     opacity: .5; 
 }
@@ -175,21 +172,29 @@ main section {
 /* ========================================== */ 
 
 .skills-container {
-    border: 1px solid black; 
-    padding: 10px 0; 
-
+    width: 70%; 
 }
 
 .skill {
     display: flex; 
-    flex-direction: row; 
-    justify-content: center; 
+    flex-direction: column; 
     align-items: center;
     flex-wrap: wrap; 
-    width: 200px; 
+    width: 25%; 
+    height: 200px; 
     margin: 10px;  
     border: 1px solid black; 
     transition: all .9s ease;  
+}
+
+.skill-header {
+    width: 100%; 
+    height: 50%; 
+}
+
+.skill-description {
+    height: 50%; 
+    width: 100%; 
 }
 
 #html5-icon {
@@ -359,7 +364,4 @@ main section {
         width: 80%; 
     }
 
-    main {
-        margin-top: 100px; 
-    }
 }

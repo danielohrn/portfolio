@@ -10,7 +10,7 @@ const Page = (function(){
     const myWork = main.querySelector('#myWork'); 
     const contactMe = main.querySelector('#contactMe'); 
     const aboutKyh = main.querySelector('#aboutKyh'); 
-    const scrollAnchor = main.querySelector('#scrollAnchor'); 
+    //const scrollAnchor = main.querySelector('#scrollAnchor'); 
     
     // Page info object 
     const pageInfo = {
@@ -22,7 +22,7 @@ const Page = (function(){
                 element: presentation,
                 yPos: presentation.offsetTop,
                 skillList: ['JavaScript', 'HTML5', 'CSS', 'React', 'Node'],
-                scrollAnchorYpos: scrollAnchor.offsetTop
+                //scrollAnchorYpos: scrollAnchor.offsetTop
             },
             mySkills: {
                 element: mySkills,                
@@ -76,25 +76,25 @@ const Page = (function(){
         window.scrollTo({top: yPos, left: xPos, behavior: 'smooth'}); 
     }
 
-    scrollAnchor.addEventListener('click', function(){
-        let { yPos } = pageInfo.sections.mySkills; 
-        // Sets scroll target to 0 (top of page) 
-        // if user is scrolled down beneath initial yPos for scroll anchor 
-        if(window.scrollY >= pageInfo.sections.presentation.scrollAnchorYpos) {
-            yPos = 0; 
-        } 
-        scroll(yPos); 
-    })
+    // scrollAnchor.addEventListener('click', function(){
+    //     let { yPos } = pageInfo.sections.mySkills; 
+    //     // Sets scroll target to 0 (top of page) 
+    //     // if user is scrolled down beneath initial yPos for scroll anchor 
+    //     if(window.scrollY >= pageInfo.sections.presentation.scrollAnchorYpos) {
+    //         yPos = 0; 
+    //     } 
+    //     scroll(yPos); 
+    // })
 
     // TODO: Clean up
     window.addEventListener('scroll', function(e){
         if(window.scrollY >= pageInfo.sections.presentation.element.getBoundingClientRect().bottom) {
             header.className = 'header-scrolling';
-            scrollAnchor.classList.add('arrow-flipped');
+            //scrollAnchor.classList.add('arrow-flipped');
         } else {
             header.className = 'header-initial'; 
-            scrollAnchor.classList.remove('arrow-flipped'); 
-            scrollAnchor.dataset.target = pageInfo.sections.mySkills.yPos;             
+            //scrollAnchor.classList.remove('arrow-flipped'); 
+            //scrollAnchor.dataset.target = pageInfo.sections.mySkills.yPos;             
         }
     })
 
@@ -121,7 +121,7 @@ const HeaderModule = (function(){
 
     // Eventlisteners 
     navLinks.addEventListener('click', navigate); 
-    socialLinksToggle.addEventListener('click', toggleHide); 
+    // socialLinksToggle.addEventListener('click', toggleHide); 
     hamburger.addEventListener('click', toggleMenu); 
 
     // Functions 
