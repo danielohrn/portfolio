@@ -18,6 +18,10 @@
     align-items: center; 
     border-top: 1px solid lightgray; 
 }
+
+.page-section:first-of-type {
+    border: none; 
+}
 /* ========================================== */ 
 
 
@@ -31,7 +35,6 @@ header {
     left: 0px;
     transition: all 0.6s ease; 
     z-index: 1; 
-    background: url('../img/stardust.png'); 
     display: flex; 
     flex-direction: column;
     justify-content: space-between; 
@@ -112,7 +115,6 @@ header nav ul li i {
 
 main {
     margin-left: 70px; 
-    //background: url('../img/stardust.png')
 }
 
 /* ========================================== */ 
@@ -183,7 +185,7 @@ main {
     width: 25%; 
     height: 200px; 
     margin: 10px;  
-    border: 1px solid black; 
+    border: 1px solid lightgray; 
     transition: all .9s ease;  
 }
 
