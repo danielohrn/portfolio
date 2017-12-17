@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">  
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css"> 
     <link rel="stylesheet" href="css/general.css">   
@@ -22,7 +22,7 @@
             </div>
 
             <div id="hamburger" class="hamburger">
-                <i class="fa fa-hand-o-left fa-3x" aria-hidden="true"></i>
+                    <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
             </div>
 
             <nav>
@@ -42,103 +42,147 @@
                     <li data-section="aboutKyh">
                         <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
                         <p>KYH</p>
-                    </li> 
-                    <li id="socialLinksToggle">
-                        <i class="fa fa-user fa-2x" aria-hidden="true"></i> 
-                        <p>Social links</p>
-                        <ul id="socialLinks" class="social-links hidden">
-                            <li>
-                                <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
-                                <a href="https://github.com/danielohrn">Github</a>
-                            </li>
-                            <li>
-                                <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                                <a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">LinkedIn</a>
-                            </li>  
-                        </ul>                 
                     </li>
-                 
                 </ul>
             </nav>
         </header>
     
         <main>
+            <div hidden id="scroll-arrow" class="hidden flex-col justify-center align-center">
+                <i class="fa fa-chevron-up fa-1x" aria-hidden="true"></i>        
+            </div>
+
             <section id="presentation" class="presentation flex-col justify-center align-center">
-
+                <!-- CANVAS -->
+                <canvas id="canvas"></canvas>
+                
                 <div class="name">
-                    <h2>Hey, im</h2>
-                    <h1>DANIEL.</h1>
-                    <h2>
-                        I'm a front end developer student with skills in <span id="skillList">JavaScript</span>
-                    </h2>
-                </div>
-
-                <div class="my-work-anchor flex-col justify-center align-center">
-                    <h2>My work and skills</h2>
-                    <i id="scrollAnchor" data-target="720" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
+                    <h1>Hey, im <span class="highlight">Daniel</span>.</h1>
+                    <h2>I'm a front end developer student with skills in <span id="skillList">JavaScript.</span></h2>
+                    <a href="#" id="checkItOut" class="btn">
+                        Check out my skills and my work.
+                        <i class="fa fa-hand-o-down fa-1x" aria-hidden="true"></i>
+                    </a>
                 </div>
             </section>
 
             <section id="mySkills" class="my-skills">
+                
+                <h3 class="section-header flex-row justify-center">SKILLS</h3>
 
-                    <!-- flex-col justify-space-around align-center -->
+                <div class="skills-container wrap">
+                    <div class="skill">
+                        <h3>Front end</h3>
+                        <ul>
+                            <li>
+                                <i id="html5-icon" class="fa fa-html5 fa-1x" aria-hidden="true"></i> 
+                                <span>HTML5</span>
+                            </li>
+                            <li>
+                                <i id="css3-icon" class="fa fa-css3 fa-1x" aria-hidden="true"></i>   
+                                <span>CSS</span>
+                            </li>
+                            <li>
+                                <i id="js-icon" class="fa fa-heart fa-1x" aria-hidden="true"></i> 
+                                <span>JavaScript</span>
+                            </li>
+                        </ul>
 
-                <div class="skills-container">
-                    
-                    <div class="skill">
-                        <h2>HTML5</h2> 
-                        <i id="html5-icon" class="fa fa-html5 fa-5x" aria-hidden="true"></i> 
-                         
-                    </div>
-    
-                    <div class="skill">
-                        <h2>CSS3</h2> 
-                        <i id="css3-icon" class="fa fa-css3 fa-5x" aria-hidden="true"></i>   
-                                                 
-                    </div>
-    
-                    <div class="skill">
-                        <h2>Javascript/ES2015</h2>
-                        <i id="js-icon" class="fa fa-heart fa-5x" aria-hidden="true"></i> 
-                                                 
-                    </div>
+                        <h4>Add-ons</h4>
+                        <ul>
+                            <li>
+                                <img style="width: 30px" src="https://cdn.worldvectorlogo.com/logos/react.svg">
+                                <span>React</span>
+                            </li>
+                            <li>
+                                <img style="width: 30px" src="http://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg">
+                                <span>Sass</span>
+                            </li>
+                        </ul>
 
-                    <div class="skill">
-                        <h2>Git</h2>                           
-                        <i class="fa fa-git fa-5x" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="skill">
-                        <h2>Github</h2>
-                        <i class="fa fa-github-alt fa-5x" aria-hidden="true"></i>                       
-                    </div>
-
-                    <div class="skill">
-                        <h2>Agile working</h2>
-                        <i class="fa fa-users fa-5x" aria-hidden="true"></i>                       
                     </div>
 
                     <div class="skill">
-                        <h2>React.js</h2>
-                        <img style="width: 70px" src="https://cdn.worldvectorlogo.com/logos/react.svg">                   
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>
+                                <img style="width: 30px" src="https://node-os.com/assets/images/nodejs.png">
+                                <span>Node.js</span>
+                            </li>
+                            <li>
+                                <img style="width: 30px" src="http://php.net/manual/en/images/c0d23d2d6769e53e24a1b3136c064577-php_logo.png">
+                                <span>PHP</span>
+                            </li>
+                            <li>
+                                <img style="width: 30px" src="https://www.tecklyfe.com/wp-content/uploads/2017/01/MySQL-logo-759x494.png">
+                                <span>MySQL</span>
+                            </li>
+                            <li>
+                                <img style="width: 30px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/WordPress_blue_logo.svg/1200px-WordPress_blue_logo.svg.png">
+                                <span>Wordpress</span>
+                            </li>
+                        </ul>
+                        <h4>Add-ons</h4>
+                        <ul>
+                            <li>
+                                <img style="width: 30px" src="https://avatars0.githubusercontent.com/u/5658226?s=280&v=4">
+                                <span>Express</span>
+                            </li>
+                            <li>
+                                <img style="width: 30px" src="https://www.pubnub.com/wp-content/uploads/2014/07/SOCKETIOICON.gif">
+                                <span>Socket.io</span>
+                            </li>
+                        </ul>
                     </div>
 
+                    <div class="skill">
+                        <h3>Tools</h3>
+                        <ul>
+                            <li>
+                                <img style="width: 30px" src="https://eg2.gallerycdn.vsassets.io/extensions/eg2/vscode-npm-script/0.3.3/1509888056659/Microsoft.VisualStudio.Services.Icons.Default">
+                                <span>Npm</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-git fa-1x" aria-hidden="true"></i>
+                                <span>Git</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-github-alt fa-1x" aria-hidden="true"></i>
+                                <span>Github</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="skill">
+                        <h3>Other</h3>
+                        <ul>
+                            <li>
+                                <img style="width: 30px" src="http://3u8npt2xyr3u2fgvai49zopv-wpengine.netdna-ssl.com/wp-content/uploads/2015/10/csharp-300x288.png">
+                                <span>C#</span>
+                            </li>
+                            <li>
+                                <img style="width: 30px" src="https://pluralsight.imgix.net/paths/python-7be70baaac.png">
+                                <span>Python</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section id="myWork" class="content flex-row justify-center align-center wrap">
+            <section id="myWork" class="content ">
 
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-                
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-
+                <h3 class="section-header flex-row justify-center">WORK</h3>
+                <div class="flex-container">
+                    <div class="project flex-col justify-center align-center">Coming soon</div>
+                    <div class="project flex-col justify-center align-center">Coming soon</div>
+                </div>
             </section>
 
-            <section id="contactMe" class="content contact-me flex-col justify-center align-center">
+            <section id="contactMe">
+
+                <h3 class="section-header flex-row justify-center">CONTACT</h3>
+
+                <div class="flex-container">
                     <div class="editor">
                         <div class="top-bar">
                             <i style="color: #ff0000b0; margin-left: 5px;" class="fa fa-circle" aria-hidden="true"></i>
@@ -161,30 +205,37 @@
                             <h2>Email:</h2>
                             <p>dhasslof@gmail.com</p>
                     
-                            <h2>LinkedIn</h2>  
+                            <h2><a href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">LinkedIn</a></h2>  
                         </div>
                               
                     </div>
+                </div>
             </section>
 
-            <section id="aboutKyh" class="content about-kyh flex-col justify-center align-center">
+            <section id="aboutKyh" class="content">
 
-                <article>
-                    <div class="text">
-                        <h2>Front End Developer at KYH</h2>
-                        <p>Courses including HTML, CSS, JavaScript with popular frameworks, backend programming and UI/UX.</p>
-                    </div>
-                </article>
+                <h3 class="section-header flex-row justify-center">EDUCATION</h3>
 
-                <article>
-                    <div class="text">
-                        <h2>LIA / Work experience</h2>
-                        <p>Will be doing work experience in the fall of 2018.</p>
-                    </div>
-                </article>    
+                <div class="flex-container flex-col">
+                    <article>
+                        <div class="text">
+                            <h2>Front End Developer at KYH</h2>
+                            <p>Courses including HTML, CSS, JavaScript with popular frameworks, backend programming and UI/UX.</p>
+                        </div>
+                    </article>
+    
+                    <article>
+                        <div class="text">
+                            <h2>LIA / Work experience</h2>
+                            <p>Will be doing work experience in the fall of 2018.</p>
+                        </div>
+                    </article>   
+                </div>
+ 
             </section>      
         </main>
     </div>
+    <script src="js/canvas.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

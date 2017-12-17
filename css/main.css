@@ -2,11 +2,25 @@
                 /* GLOBAL */ 
 /* ========================================== */ 
 .wrapper {
-    font-family: 'Ubuntu', sans-serif;     
+    font-family: 'Raleway', sans-serif;     
 }
 
 .fa:hover {
     cursor: pointer; 
+}
+
+.section-header {
+    font-size: 35px;
+    padding: 10px;
+    margin: 100px 0; 
+}
+
+.flex-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    width: 100%; 
 }
 /* ========================================== */ 
 
@@ -31,10 +45,22 @@ header {
 
 .header-initial {
     background: #ffffff; 
+    height: 0px; 
+    overflow: hidden; 
 }
 
 .header-scrolling {
-    background: #ffffff54; 
+    background: #262934; 
+    height: 50px; 
+    color: #dedede; 
+}
+
+.header-scrolling i {
+    color: #dedede; 
+}
+
+.header-scrolling .logo {
+    font-size: 30px; 
 }
 
 header .logo {
@@ -56,8 +82,7 @@ header nav ul li {
     margin: 10px; 
     display: flex; 
     align-items: center; 
-    font-family: 'Source Code Pro';
-    cursor: pointer;     
+    cursor: pointer;  
 }
 
 header nav ul li i {
@@ -66,24 +91,7 @@ header nav ul li i {
 }
 
 .nav-links p:hover {
-    background: #5fc35f; 
-}
-
-#socialLinksToggle {
-    position: relative;
-}
-
-.social-links {
-    display: block;
-    position: absolute;
-    top: 90px; 
-    color: #000;
-    background: #fff;
-    width: 210px; 
-}
-
-.social-links a {
-    color: #000; 
+    border-bottom: 1px solid #5fc35f; 
 }
 
 .hidden {
@@ -104,9 +112,6 @@ header nav ul li i {
                 /* MAIN START */ 
 /* ========================================== */ 
 
-main {
-    margin-top: 100px; 
-}
 
 main section {
     min-height: 100vh; 
@@ -119,52 +124,64 @@ main section {
 /* ========================================== */ 
 
 .presentation {
-    background: url('../img/presentationBg.png');  
-    font-family: 'Lobster', sans-serif; 
+    background: #262934;  
+    font-family: 'Raleway', sans-serif; 
     color: #000;
+    height: 100vh; 
 }
 
 .presentation .name {
-    position: relative; 
-    top: -100px; 
+    position: absolute; 
+    top: 30%; 
     margin: 0 20px; 
+    color: #dedede;
+    background: #00000014;
+    padding: 50px;
+ 
 }
 
-.presentation .name h2 {
-    font-size: 2em; 
+.name .highlight {
+    color: #5fc35f; 
 }
 
-.presentation .name h1 {
-    font-size: 4em; 
-    display: inline-block;
+.name h1 {
+    font-size: 3em; 
+    margin-bottom: 20px; 
+}
+
+.name h2 {
+    font-size: 1.5em; 
+    margin-bottom: 20px;  
+}
+
+.btn {
+    color: inherit; 
+    display: inline-block; 
+    border: 1px solid #5fc35f; 
     padding: 10px; 
-    background: #5fc35f; 
-    margin: 10px 0; 
+    transition: .8s ease; 
 }
 
-.name span {
+.btn:hover {
+    background: #5fc35f; 
+}
+
+.name #skillList {
     background: #5fc35f; 
     padding: 0px 10px; 
-    width: 150px; 
+    width: 120px; 
     display: inline-block; 
     text-align: center; 
 }
 
 /* ARROW / ANCHOR for scrolling down or up the page */ 
-.my-work-anchor {
-    position: absolute; 
-    bottom: 0%; 
-}
 
-.my-work-anchor h2 {
-    font-size: 20px; 
-}
-
-.arrow-flipped {
-    position: fixed; 
-    top: 100px; 
-    transform: rotate(180deg); 
+.scroll-top {
     opacity: .5; 
+    width: 100%; 
+    position: fixed; 
+    top: 50px; 
+    z-index: 1; 
 }
 /* ========================================== */ 
         /* PRESENTATION SECTION END */ 
@@ -175,21 +192,50 @@ main section {
 /* ========================================== */ 
 
 .skills-container {
-    border: 1px solid black; 
-    padding: 10px 0; 
-
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    margin: 0 auto; 
+    width: 100%; 
 }
 
 .skill {
     display: flex; 
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: center;
+    flex-direction: column; 
     flex-wrap: wrap; 
-    width: 200px; 
     margin: 10px;  
-    border: 1px solid black; 
-    transition: all .9s ease;  
+    transition: all .9s ease; 
+    padding: 30px;  
+    width: 30%; 
+}
+
+.skill ul {
+    margin: 0 0 0 20px; 
+}
+
+.skill ul li {
+    font-size: 1.5em; 
+    margin: 10px 0;
+    height: 30px; 
+    width: 50%; 
+    display: flex;
+    align-items: center;  
+}
+
+.skill ul li span {
+    margin-left: 10px; 
+}
+
+.skill h3 {
+    font-size: 2em; 
+    background: #5fc35f; 
+    padding: 0 10px; 
+}
+
+.skill h4 {
+    font-size: 20px; 
+    background: #5fc35f; 
+    padding: 0 10px; 
 }
 
 #html5-icon {
@@ -206,16 +252,16 @@ main section {
 
 .off-screen:nth-child(even) {
     opacity: 0;
-    transform: translateX(500px);
+    transform: translateY(200px);
 }
 
 .off-screen:nth-child(odd) {
     opacity: 0;
-    transform: translateX(-500px);     
+    transform: translateY(-200px);     
 }
 
 .fade-in {
-    transform: translateX(0px);     
+    transform: translateY(0px);     
 }
 /* ========================================== */ 
             /* MY SKILLS SECTION END */ 
@@ -225,16 +271,14 @@ main section {
 /* ========================================== */ 
             /* MY WORK SECTION START */ 
 /* ========================================== */ 
-#myWork {
 
-}
 
 .project {
     width: 300px; 
     height: 300px; 
     border: 1px solid lightgray; 
     margin: 10px; 
-    background: lightgray; 
+    background: #5fc35f; 
 }
 /* ========================================== */ 
             /* MY WORK SECTION END */ 
@@ -246,6 +290,10 @@ main section {
 /* ========================================== */ 
 #contactMe {
     background: rgb(230, 230, 230); 
+}
+
+#contactMe a {
+    color: #fff; 
 }
 /* ========================================== */ 
             /* CONTACT ME SECTION END */ 
@@ -307,6 +355,10 @@ main section {
     font-size: 17px; 
 }
 
+.me p {
+    margin-left: 10px; 
+}
+
 
 /* MEDIA */ 
 @media (max-width: 700px) {
@@ -325,9 +377,9 @@ main section {
     .open {
         position: fixed; 
         right: 0px; 
-        top: 100px; 
+        top: 50px; 
         width: 100%; 
-        min-height: 300px; 
+        //min-height: 300px; 
     }
 
     .closed {
@@ -336,14 +388,28 @@ main section {
         top: 100px;  
     }
 
+    header {
+        height: 50px; 
+    }
+
+    .header-initial {
+        display: flex;
+        height: 50px; 
+
+    }
+
     header nav {
         display: flex;
         position: fixed; 
-        top: 100px; 
+        top: 50px; 
         right: -500px; 
         flex-direction: column;
         background: inherit; 
         transition: all .5s ease; 
+    }
+
+    header .logo {
+        font-size: 30px; 
     }
 
     header nav ul {
@@ -353,13 +419,19 @@ main section {
 
     .presentation .name {
         width: 90vw; 
+        top: 30%; 
+        padding: 0; 
     }
 
     .editor {
         width: 80%; 
     }
 
+    .skill {
+        width: 100%; 
+    }
+
     main {
-        margin-top: 100px; 
+        margin-top: 50px; 
     }
 }

@@ -1,5 +1,5 @@
-'use strict'; 
-
+'use strict';
+ 
 const Page = (function(){
 
     // DOM elements 
@@ -10,7 +10,7 @@ const Page = (function(){
     const myWork = main.querySelector('#myWork'); 
     const contactMe = main.querySelector('#contactMe'); 
     const aboutKyh = main.querySelector('#aboutKyh'); 
-    const scrollAnchor = main.querySelector('#scrollAnchor'); 
+    const scrollAnchor = main.querySelector('#scroll-arrow');
     
     // Page info object 
     const pageInfo = {
@@ -21,8 +21,7 @@ const Page = (function(){
             presentation: {
                 element: presentation,
                 yPos: presentation.offsetTop,
-                skillList: ['JavaScript', 'HTML5', 'CSS', 'React', 'Node'],
-                scrollAnchorYpos: scrollAnchor.offsetTop
+                skillList: ['JavaScript.', 'HTML5.', 'CSS.', 'React.', 'Node.', 'Express.', 'Socket.io.', 'Wordpress.','MySQL','Sass.'],
             },
             mySkills: {
                 element: mySkills,                
@@ -77,24 +76,20 @@ const Page = (function(){
     }
 
     scrollAnchor.addEventListener('click', function(){
-        let { yPos } = pageInfo.sections.mySkills; 
-        // Sets scroll target to 0 (top of page) 
-        // if user is scrolled down beneath initial yPos for scroll anchor 
-        if(window.scrollY >= pageInfo.sections.presentation.scrollAnchorYpos) {
-            yPos = 0; 
-        } 
-        scroll(yPos); 
+        scroll(0); 
     })
 
     // TODO: Clean up
     window.addEventListener('scroll', function(e){
-        if(window.scrollY >= pageInfo.sections.presentation.element.getBoundingClientRect().bottom) {
+        if(window.scrollY >= pageInfo.sections.mySkills.element.getBoundingClientRect().top) {
             header.className = 'header-scrolling';
-            scrollAnchor.classList.add('arrow-flipped');
+            scrollAnchor.classList.add('scroll-top');
+            scrollAnchor.classList.remove('hidden');
+
         } else {
             header.className = 'header-initial'; 
-            scrollAnchor.classList.remove('arrow-flipped'); 
-            scrollAnchor.dataset.target = pageInfo.sections.mySkills.yPos;             
+            scrollAnchor.classList.add('hidden'); 
+            scrollAnchor.classList.remove('scroll-top'); 
         }
     })
 
@@ -121,19 +116,12 @@ const HeaderModule = (function(){
 
     // Eventlisteners 
     navLinks.addEventListener('click', navigate); 
-    socialLinksToggle.addEventListener('click', toggleHide); 
     hamburger.addEventListener('click', toggleMenu); 
 
     // Functions 
-    function toggleHide(e) {
-        const target = e.target; 
-        socialLinks.classList.toggle('hidden'); 
-    }
-
     function toggleMenu(e) {
         const target = e.target; 
         header.querySelector('nav').classList.toggle('open'); 
-        target.className == 'fa fa-hand-o-left fa-3x' ? target.className = 'fa fa-hand-o-right fa-3x' : target.className = 'fa fa-hand-o-left fa-3x'; 
     }
 
     function navigate(e){
@@ -153,6 +141,8 @@ const HeaderModule = (function(){
 })();
 
 const IntroModule = (function(){
+    // Initiates the canvas animation
+    initCanvas.animate();
 
     // Brings in section object from Page module 
     const { sections } = Page.pageInfo;  
@@ -160,6 +150,12 @@ const IntroModule = (function(){
     // Intro module elements 
     const introModule = sections.presentation.element; 
     const skills = introModule.querySelector('.name #skillList'); 
+    const checkItOut = introModule.querySelector('#checkItOut'); 
+    console.log(checkItOut); 
+
+    checkItOut.addEventListener('click', e => {
+        Page.scroll(sections.mySkills.yPos); 
+    })
     
     // Functions 
     let counter = 0; 
@@ -174,6 +170,8 @@ const IntroModule = (function(){
     setInterval(()=>{
         toggleSkill(skills, sections.presentation.skillList); 
     },1400)
+
+    
 
 })();
 
