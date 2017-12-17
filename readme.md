@@ -1,7 +1,9 @@
 # Portfolio 
 
 ## TODO
-### VALIDERING 
+#### VALIDERING 
+#### SPARA ALLA BILDER I IMG-dir 
+
 
 ## Relektion
 
