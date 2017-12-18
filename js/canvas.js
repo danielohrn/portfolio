@@ -52,17 +52,14 @@ Ball.prototype.move = function() {
 }
 
 // Sets up canvas animation and balls to animate, returns animate function
-const initCanvas = (function(){
+const canvasModule = (function(){
 
     let balls = []; 
 
     function spawn(_x, _y, amount = 10){
-
         let x; 
         let y; 
-
-        for(let i = 0; i < amount; i++) {
-            
+        for(let i = 0; i < amount; i++) { 
             if(!_x && !_y) {
                 x = Math.floor(Math.random() * canvas.width);
                 y = Math.floor(Math.random() * canvas.height);
@@ -77,18 +74,20 @@ const initCanvas = (function(){
         }
     }
 
-    let width = canvas.width / 4; 
-    let height = canvas.height / 4; 
+    let quarterWidth = canvas.width / 4; 
+    let quarterHeight = canvas.height / 4; 
     
-    spawn(width, height, 33);
-    setTimeout(()=>{
-        spawn(width * 2, height, 33);
-    },1000)
-     
-    setTimeout(()=>{
-        spawn(width * 3, height,33); 
-    },2000)
-    
+    function initCanvas(){
+        spawn(quarterWidth, quarterHeight, 33);
+        setTimeout(()=>{
+            spawn(quarterWidth * 2, quarterHeight, 33);
+        },1000)
+         
+        setTimeout(()=>{
+            spawn(quarterWidth * 3, quarterHeight,33); 
+        },2000)
+    }
+
     function animate(){
         ctx.clearRect(0,0,canvas.width, canvas.height); 
         ctx.fillRect(0,0, canvas.width, canvas.height); 
@@ -102,11 +101,16 @@ const initCanvas = (function(){
     }
 
     canvas.addEventListener('click', e => {
-        console.log(e.x, e.y); 
         spawn(e.x, e.y, 10); 
     })
 
+    window.addEventListener('resize', e =>{
+        canvas.width = innerWidth; 
+        canvas.height = innerHeight; 
+    })
+
     return {
+        initCanvas,
         animate,
         spawn
     }

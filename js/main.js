@@ -9,7 +9,7 @@ const Page = (function(){
     const mySkills = main.querySelector('#mySkills'); 
     const myWork = main.querySelector('#myWork'); 
     const contactMe = main.querySelector('#contactMe'); 
-    const aboutKyh = main.querySelector('#aboutKyh'); 
+    const aboutMe = main.querySelector('#aboutMe'); 
     const scrollAnchor = main.querySelector('#scroll-arrow');
     
     // Page info object 
@@ -21,7 +21,7 @@ const Page = (function(){
             presentation: {
                 element: presentation,
                 yPos: presentation.offsetTop,
-                skillList: ['JavaScript.', 'HTML5.', 'CSS.', 'React.', 'Node.', 'Express.', 'Socket.io.', 'Wordpress.','MySQL','Sass.'],
+                skillList: ['JavaScript.', 'HTML5.', 'CSS.', 'React.', 'Node.', 'Express.', 'Socket.io.', 'Wordpress.','Sass.'],
             },
             mySkills: {
                 element: mySkills,                
@@ -36,9 +36,9 @@ const Page = (function(){
                 yPos: contactMe.offsetTop,
                 code: 'dev.getInfo();'
             },
-            aboutKyh: {
-                element: aboutKyh,                
-                yPos: aboutKyh.offsetTop
+            aboutMe: {
+                element: aboutMe,                
+                yPos: aboutMe.offsetTop
             }
         }, 
     }
@@ -75,6 +75,14 @@ const Page = (function(){
         window.scrollTo({top: yPos, left: xPos, behavior: 'smooth'}); 
     }
 
+    function swoosh(elements, sectionYpos){
+        if(window.scrollY > sectionYpos) {
+            elements.forEach(element => {
+                element.classList.remove('off-screen'); 
+            })
+        }
+    }
+
     scrollAnchor.addEventListener('click', function(){
         scroll(0); 
     })
@@ -97,6 +105,7 @@ const Page = (function(){
    return {
        pageInfo,
        scroll,
+       swoosh,
        typeWrite
    }
 
@@ -141,8 +150,10 @@ const HeaderModule = (function(){
 })();
 
 const IntroModule = (function(){
-    // Initiates the canvas animation
-    initCanvas.animate();
+
+    // Initiates the canvas and its animation
+    canvasModule.initCanvas(); 
+    canvasModule.animate();
 
     // Brings in section object from Page module 
     const { sections } = Page.pageInfo;  
@@ -151,8 +162,8 @@ const IntroModule = (function(){
     const introModule = sections.presentation.element; 
     const skills = introModule.querySelector('.name #skillList'); 
     const checkItOut = introModule.querySelector('#checkItOut'); 
-    console.log(checkItOut); 
 
+    // Eventlisteners 
     checkItOut.addEventListener('click', e => {
         Page.scroll(sections.mySkills.yPos); 
     })
@@ -182,7 +193,12 @@ const SkillsModule = (function(){
 
     // Skills module elements 
     const mySkills = sections.mySkills.element;
-    const skills = mySkills.querySelectorAll('.skill'); 
+    const skills = mySkills.querySelectorAll('.skill');
+
+    let skillsRatingFinished = false; 
+    const skillRatings = mySkills.querySelectorAll('.skill-rating'); 
+    const imgs = mySkills.querySelectorAll('.skill-img');
+    const loadingBars = mySkills.querySelectorAll('.skill ul li');  
 
     // Adds class of swoosh to all skill elements 
     skills.forEach(skill => {
@@ -195,9 +211,36 @@ const SkillsModule = (function(){
             skills.forEach(skill => {
                 skill.classList.remove('off-screen');
                 skill.classList.add('fade-in');            
-            })    
-        }
+            })
+            if(!skillsRatingFinished) {
+                skillRatings.forEach((el, i)=>{
+                    tickHandler(imgs[i].dataset.skillrating, el, 30);
+                    loadingBars[i].style.width = imgs[i].dataset.skillrating + '%';
+                    loadingBars[i].classList.add('bg-ligthgray'); 
+                })
+                skillsRatingFinished = true; 
+            }
+        } 
     });
+
+    function tickHandler(skillRating, element, SPEED = 10){
+        let i = 0; 
+
+        let interval = setInterval(()=>{
+            tick(0, skillRating, element);
+        },SPEED)
+
+        function tick(from, to, element){
+            if(i > to) {
+                i = 0; 
+                clearInterval(interval); 
+            } else {
+                element.innerHTML = `${i}%`;
+                i++; 
+            }
+        }
+    }
+
 })();
 
 
@@ -210,8 +253,8 @@ const contactModule = (function(){
     const contactMe = sections.contactMe.element;  
     const me = contactMe.querySelector('.editor .me'); 
     const code = contactMe.querySelector('.editor .line #code');    
-
-    // Sets the display to none 
+    
+    // Sets the display to none so contact info can be shown without JS
     me.style.display = 'none';     
 
     // Event listeners 
@@ -224,7 +267,6 @@ const contactModule = (function(){
     // Functions 
     let introFinished = false; 
     let printing = false; 
-
     function terminalIntro(){
         if(!introFinished && !printing) {
             printing = true;
@@ -240,5 +282,59 @@ const contactModule = (function(){
     }
     
 })(); 
+
+const aboutMe = (function(){
+
+    const { sections } = Page.pageInfo; 
+    const aboutMe = sections.aboutMe.element; 
+    const articles = aboutMe.querySelectorAll('article'); 
+
+    articles.forEach(article => {
+        article.classList.add('off-screen'); 
+    })
+
+    window.addEventListener('scroll', e =>{
+        Page.swoosh(articles, aboutMe.offsetTop - 300);
+    })
+
+})(); 
+
+
+const easterEgg = (function(){
+
+    const eagle = document.querySelector('#eagle'); 
+
+    eagle.addEventListener('mouseenter', birdhunt);
+    eagle.addEventListener('click', birdhunt);
+
+    let tries = 0; 
+    function birdhunt(e){
+        let timeout; 
+        tries++; 
+        
+        if(e.type == 'click') {
+            alert('Congratulations! It took you ' + tries + ' tries.'); 
+            tries = 0; 
+        } else {
+            if(tries % 3 == 1) {
+                e.target.style.bottom = '-100px';
+                e.target.style.display = 'none';
+                timeout = setTimeout(()=>{
+                    move(); 
+                }, 3000); 
+            } else {
+                e.target.style.right = Math.random() * innerWidth + 'px';
+            }
+        }
+
+        function move(){
+            e.target.style.display = 'initial'; 
+            e.target.style.bottom = '40px'; 
+            e.target.style.right = Math.random() * innerWidth + 'px'; 
+            clearTimeout(timeout); 
+        }
+
+    }
+})();
 
 
