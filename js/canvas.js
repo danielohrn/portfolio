@@ -6,7 +6,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight; 
 
-// Colors array
+// Colors 
+const canvasBg = '#262934'; 
 const colors = [
     '#C6D8D3',
     '#5fc35f'
@@ -48,7 +49,6 @@ Ball.prototype.move = function() {
     this.xPos += this.xVel; 
     this.yPos += this.yVel; 
     this.draw(); 
-
 }
 
 // Sets up canvas animation and balls to animate, returns animate function
@@ -91,7 +91,7 @@ const canvasModule = (function(){
     function animate(){
         ctx.clearRect(0,0,canvas.width, canvas.height); 
         ctx.fillRect(0,0, canvas.width, canvas.height); 
-        ctx.fillStyle = '#262934'; 
+        ctx.fillStyle = canvasBg; 
      
         for(let i = 0; i < balls.length; i++){
             balls[i].move();

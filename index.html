@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">  
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css"> 
-    <link rel="stylesheet" href="css/general.css">   
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Daniel</title>
+    <link rel="icon" type="image/png" href="img/eagle.png"/>
+    <title>Hey, im Daniel</title>
 </head>
 <body>
     <!-- PAGE WRAPPER -->
-    <div class="wrapper">   
+    <div class="page-wrapper">
+        <!-- HEADER -->
         <header id="header" class="header-initial">
             <div class="logo flex-row justify-center align-center">
-                <h1>D.</h1>
+                <span>D.</span>
+            </div>
+            <!-- NAV HAMBURGER -->
+            <div hidden id="hamburger" class="hamburger">
+                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
             </div>
 
-            <div id="hamburger" class="hamburger">
-                    <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-            </div>
-
+            <!-- NAV -->
             <nav>
                 <ul id="navLinks" class="nav-links">
                     <li data-section="mySkills">
@@ -46,7 +46,7 @@
                 </ul>
             </nav>
         </header>
-    
+        <!-- MAIN START -->
         <main>
             <div hidden id="scroll-arrow" class="hidden flex-col justify-center align-center">
                 <i class="fa fa-chevron-up fa-1x" aria-hidden="true"></i>        
@@ -55,22 +55,21 @@
             <section id="presentation" class="presentation flex-col justify-center align-center">
                 <!-- CANVAS -->
                 <canvas id="canvas"></canvas>
-                
+                <!-- HEY IM DANIEL -->
                 <div class="name">
-                    <h1>Hey, im <span class="highlight">Daniel</span>.</h1>
-                    <h2>I'm a frontend developer student with skills in <span id="skillList">JavaScript.</span></h2>
-                    <a href="#" id="checkItOut" class="btn">
+                    <h1>Hey, im <span class="text-green">Daniel</span>.</h1>
+                    <h2>I'm a frontend developer student with skills in <span id="skillList" class="bg-green">JavaScript.</span></h2>
+                    <a id="checkItOut" class="btn">
                         Check out my skills and my work.
                         <i class="fa fa-hand-o-down fa-1x" aria-hidden="true"></i>
                     </a>
                 </div>
             </section>
-
-            <section id="mySkills" class="my-skills bg-ligthgray">
-                
+            <!-- MY SKILLS -->
+            <section id="mySkills" class="bg-ligthgray">
                 <h1 class="section-header flex-row justify-center">SKILLS</h1>
-
-                <div class="skills-container wrap">
+                <!-- FRONTEND SKILLS -->
+                <div class="flex-container wrap">
                     <div class="skill">
                         <h2>Frontend</h2>
                         <ul>
@@ -90,7 +89,7 @@
                                 <span class="skill-rating"></span>
                             </li>
                         </ul>
-
+                        <!-- FRONTEND ADD-ONS -->
                         <h3>Add-ons</h3>
                         <ul>
                             <li>
@@ -110,7 +109,7 @@
                             </li>
                         </ul>
                     </div>
-
+                    <!-- BACKEND SKILLS -->
                     <div class="skill">
                         <h2>Backend</h2>
                         <ul>
@@ -130,6 +129,7 @@
                                 <span class="skill-rating"></span>
                             </li>
                         </ul>
+                        <!-- BACKEND ADD-ONS -->
                         <h3>Add-ons</h3>
                         <ul>
                             <li>
@@ -144,12 +144,12 @@
                             </li>
                         </ul>
                     </div>
-
+                    <!-- TOOLS -->
                     <div class="skill">
                         <h2>Tools</h2>
                         <ul>
                             <li>
-                                <img data-skillRating="50" class="skill-img" src="img/skills/npm.default" alt="npm-logo">
+                                <img data-skillRating="50" class="skill-img" src="img/skills/npm.png" alt="npm-logo">
                                 <span>npm</span>
                                 <span class="skill-rating"></span>
                             </li>
@@ -165,7 +165,7 @@
                             </li>
                         </ul>
                     </div>
-
+                    <!-- OTHER SKILLS -->
                     <div class="skill">
                         <h2>Other</h2>
                         <ul>
@@ -183,19 +183,17 @@
                     </div>
                 </div>
             </section>
-
-            <section id="myWork" class="content">
-
+            <!-- MY WORK -->
+            <section id="myWork">
                 <h1 class="section-header flex-row justify-center">WORK</h1>
                 <div class="flex-container wrap">
                     <div class="project flex-col justify-center align-center">Coming soon</div>
                 </div>
             </section>
-
-            <section id="contactMe">
-
+            <!-- CONTACT ME -->
+            <section id="contactMe" class="bg-ligthgray">
                 <h1 class="section-header flex-row justify-center">CONTACT</h1>
-
+                <!-- TERMINAL -->
                 <div class="flex-container">
                     <div class="editor">
                         <div class="top-bar">
@@ -206,8 +204,8 @@
                         <div class="line">
                             <span>$ </span><span id="code">dev.getInfo();</span>
                         </div>
-                        
-                        <div class="me">
+                        <!-- CONTACT DETAILS -->
+                        <div class="me text-white">
                             <h2>Personal info:</h2>
                             <p>Daniel Öhrn Hasslöf</p>
                             <p>Age: 25</p>
@@ -216,31 +214,29 @@
                             <h2>Get in touch:</h2>
                             <p>dhasslof@gmail.com</p>
                             <p>
-                                <a target="_blank" href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">
+                                <a class="text-white" target="_blank" href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">
                                     LinkedIn
                                     <i class="fa fa-external-link" aria-hidden="true"></i>
                                 </a>
                             </p>  
-                        </div>
-                              
+                        </div>   
                     </div>
                 </div>
             </section>
-
+            <!-- ABOUT ME -->
             <section id="aboutMe">
-
                 <h1 class="section-header flex-row justify-center">ABOUT ME</h1>
-
-                <div class="flex-container align-start wrap content">
+                <!-- EDUCATION -->
+                <div class="flex-container align-start wrap text-content">
                     <article>
                         <h2 class="bg-blackish text-white"><i class="fa fa-graduation-cap fa-1x" aria-hidden="true"></i>Education</h2>
-                        <p>I am currently studying year one of the fronend developer program at KYH.</p>
+                        <p>I am currently studying year one of the frontend developer program at KYH.</p>
                         <p>I am learning HTML, CSS, JavaScript with popular frameworks, backend programming and UI/UX-design.</p>
                     
                         <h3 class="bg-blackish text-white">LIA / Work experience</h3>
                         <p>I will be doing work experience, or "LIA" (learning while working) in the fall of 2018.</p>      
                     </article>
-
+                    <!-- PERSONAL -->
                     <article>
                         <h2 class="bg-blackish text-white"><i class="fa fa-user" aria-hidden="true"></i>Personal</h2>
                         <p>I love to code and to learn about new techniques. My language of choice is JavaScript with ES6.</p>
@@ -251,8 +247,9 @@
                 </div>
             </section>    
         </main>
+        <!-- FOOTER -->
         <footer class="bg-blackish">
-            <img id="eagle" src="https://image.flaticon.com/icons/png/512/119/119450.png" alt="eagle" style="width: 40px; position: absolute; right: 10px; bottom: 40px; transition: all .1s ease; cursor: pointer;">
+            <img id="eagle" src="img/eagle.png" alt="eagle" style="width: 40px; position: absolute; right: 10px; bottom: 1px; transition: all .1s ease; cursor: pointer;">
         </footer>
     </div>
     <script src="js/canvas.js"></script>

@@ -72,6 +72,7 @@ const Page = (function(){
     }
 
     function scroll(yPos, xPos = 0){
+        console.log(yPos)
         window.scrollTo({top: yPos, left: xPos, behavior: 'smooth'}); 
     }
 
@@ -83,11 +84,11 @@ const Page = (function(){
         }
     }
 
+    // Event listeners 
     scrollAnchor.addEventListener('click', function(){
         scroll(0); 
     })
 
-    // TODO: Clean up
     window.addEventListener('scroll', function(e){
         if(window.scrollY >= pageInfo.sections.mySkills.element.getBoundingClientRect().top) {
             header.className = 'header-scrolling';
@@ -165,6 +166,7 @@ const IntroModule = (function(){
 
     // Eventlisteners 
     checkItOut.addEventListener('click', e => {
+        console.log(e); 
         Page.scroll(sections.mySkills.yPos); 
     })
     
@@ -178,11 +180,10 @@ const IntroModule = (function(){
         counter++; 
     }
 
+    // Toggles skill-list 
     setInterval(()=>{
         toggleSkill(skills, sections.presentation.skillList); 
     },1400)
-
-    
 
 })();
 
@@ -223,6 +224,7 @@ const SkillsModule = (function(){
         } 
     });
 
+    // Functions
     function tickHandler(skillRating, element, SPEED = 10){
         let i = 0; 
 
@@ -289,10 +291,12 @@ const aboutMe = (function(){
     const aboutMe = sections.aboutMe.element; 
     const articles = aboutMe.querySelectorAll('article'); 
 
+    // Adds class off-screen to article elements 
     articles.forEach(article => {
         article.classList.add('off-screen'); 
     })
 
+    // Event listeners 
     window.addEventListener('scroll', e =>{
         Page.swoosh(articles, aboutMe.offsetTop - 300);
     })
@@ -308,32 +312,17 @@ const easterEgg = (function(){
     eagle.addEventListener('click', birdhunt);
 
     let tries = 0; 
-    function birdhunt(e){
-        let timeout; 
-        tries++; 
-        
-        if(e.type == 'click') {
-            alert('Congratulations! It took you ' + tries + ' tries.'); 
+    function birdhunt(e){        
+        if(e.type == 'click' && tries > 10) {
+            alert('GRATZ'); 
             tries = 0; 
         } else {
-            if(tries % 3 == 1) {
-                e.target.style.bottom = '-100px';
-                e.target.style.display = 'none';
-                timeout = setTimeout(()=>{
-                    move(); 
-                }, 3000); 
-            } else {
-                e.target.style.right = Math.random() * innerWidth + 'px';
-            }
+            move(); 
         }
-
         function move(){
-            e.target.style.display = 'initial'; 
-            e.target.style.bottom = '40px'; 
+            tries++;
             e.target.style.right = Math.random() * innerWidth + 'px'; 
-            clearTimeout(timeout); 
         }
-
     }
 })();
 
