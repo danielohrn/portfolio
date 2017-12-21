@@ -16,10 +16,12 @@ const Page = (function(){
     const pageInfo = {
         sections: {
             header: {
-                element: header, 
+                element: header,
+                scrollAnchor: scrollAnchor 
             },
             presentation: {
                 element: presentation,
+                canvas: CanvasModule.element,
                 yPos: presentation.offsetTop,
                 skillList: ['JavaScript.', 'HTML5.', 'CSS.', 'React.', 'Node.', 'Express.', 'Socket.io.', 'Wordpress.','Sass.'],
             },
@@ -44,6 +46,24 @@ const Page = (function(){
     }
 
     // Functions 
+    function tickHandler(targetValue, element, SPEED = 10){
+        let i = 0; 
+
+        let interval = setInterval(()=>{
+            tick(0, targetValue, element);
+        },SPEED)
+
+        function tick(from, to, element){
+            if(i > to) {
+                i = 0; 
+                clearInterval(interval); 
+            } else {
+                element.innerHTML = `${i}%`;
+                i++; 
+            }
+        }
+    }
+
     function typeWrite(phrase, target, SPEED_MILLIS = 1000, clearHTML = false){
         let phraseToWrite = Array.from(phrase); 
         let done = false; 
@@ -72,7 +92,6 @@ const Page = (function(){
     }
 
     function scroll(yPos, xPos = 0){
-        console.log(yPos)
         window.scrollTo({top: yPos, left: xPos, behavior: 'smooth'}); 
     }
 
@@ -84,30 +103,25 @@ const Page = (function(){
         }
     }
 
-    // Event listeners 
-    scrollAnchor.addEventListener('click', function(){
-        scroll(0); 
-    })
-
-    window.addEventListener('scroll', function(e){
-        if(window.scrollY >= pageInfo.sections.mySkills.element.getBoundingClientRect().top) {
-            header.className = 'header-scrolling';
-            scrollAnchor.classList.add('scroll-top');
-            scrollAnchor.classList.remove('hidden');
-
-        } else {
-            header.className = 'header-initial'; 
-            scrollAnchor.classList.add('hidden'); 
-            scrollAnchor.classList.remove('scroll-top'); 
-        }
-    })
+    function debounce(fn, wait) {
+        let timeout;
+        return function() {
+            let ctx = this, args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(function() {
+                fn.apply(ctx, args);
+            }, wait || 100);
+        };
+    };
 
     // API for other modules 
    return {
        pageInfo,
        scroll,
        swoosh,
-       typeWrite
+       tickHandler,
+       typeWrite,
+       debounce
    }
 
 })();
@@ -121,20 +135,35 @@ const HeaderModule = (function(){
     const header = sections.header.element; 
     const navLinks = header.querySelector('#navLinks'); 
     const socialLinks = header.querySelector('#socialLinks'); 
-    const socialLinksToggle = header.querySelector('#socialLinksToggle'); 
     const hamburger = header.querySelector('#hamburger i'); 
 
     // Eventlisteners 
-    navLinks.addEventListener('click', navigate); 
+    navLinks.addEventListener('click', navigateToSection); 
     hamburger.addEventListener('click', toggleMenu); 
-
+    window.addEventListener('scroll', Page.debounce(toggleHeaderVisibility,20));
+    sections.header.scrollAnchor.addEventListener('click', function(){
+        Page.scroll(0); 
+    })
+    
     // Functions 
     function toggleMenu(e) {
-        const target = e.target; 
         header.querySelector('nav').classList.toggle('open'); 
     }
 
-    function navigate(e){
+    function toggleHeaderVisibility(e){
+        if(window.scrollY >= sections.mySkills.element.getBoundingClientRect().top) {
+            header.className = 'header-scrolling';
+            sections.header.scrollAnchor.classList.add('scroll-top');
+            sections.header.scrollAnchor.classList.remove('hidden');
+
+        } else {
+            header.className = 'header-initial'; 
+            sections.header.scrollAnchor.classList.add('hidden'); 
+            sections.header.scrollAnchor.classList.remove('scroll-top'); 
+        }
+    }
+
+    function navigateToSection(e){
         const nav = header.querySelector('nav'); 
         const target = e.target; 
         if(target.nodeName == 'LI' && target.dataset.section) {
@@ -153,8 +182,8 @@ const HeaderModule = (function(){
 const IntroModule = (function(){
 
     // Initiates the canvas and its animation
-    canvasModule.initCanvas(); 
-    canvasModule.animate();
+    CanvasModule.initCanvas(); 
+    CanvasModule.animate();
 
     // Brings in section object from Page module 
     const { sections } = Page.pageInfo;  
@@ -166,10 +195,11 @@ const IntroModule = (function(){
 
     // Eventlisteners 
     checkItOut.addEventListener('click', e => {
-        console.log(e); 
         Page.scroll(sections.mySkills.yPos); 
     })
-    
+
+    window.addEventListener('resize', Page.debounce(CanvasModule.resizeCanvas)); 
+
     // Functions 
     let counter = 0; 
     function toggleSkill(targetElement, skillList){
@@ -194,59 +224,41 @@ const SkillsModule = (function(){
 
     // Skills module elements 
     const mySkills = sections.mySkills.element;
-    const skills = mySkills.querySelectorAll('.skill');
-
-    let skillsRatingFinished = false; 
-    const skillRatings = mySkills.querySelectorAll('.skill-rating'); 
-    const imgs = mySkills.querySelectorAll('.skill-img');
-    const loadingBars = mySkills.querySelectorAll('.skill ul li');  
+    const skills = mySkills.querySelectorAll('.skill-group');
 
     // Adds class of swoosh to all skill elements 
     skills.forEach(skill => {
         skill.classList.add('off-screen'); 
     })
 
-    // Eventlisteners 
-    window.addEventListener('scroll', e => {
+    // Debounced event listener 
+    window.addEventListener('scroll', Page.debounce(handleSkillsTick, 30))
+
+    // Handles skills % tick
+    let skillsRatingFinished = false; 
+    const skillRatingSpans = mySkills.querySelectorAll('.skill-rating'); 
+    const skillLoadingBars = mySkills.querySelectorAll('.skill-group ul li');  
+    function handleSkillsTick() {
         if(window.scrollY >= (sections.mySkills.yPos / 2)) {
             skills.forEach(skill => {
                 skill.classList.remove('off-screen');
                 skill.classList.add('fade-in');            
             })
             if(!skillsRatingFinished) {
-                skillRatings.forEach((el, i)=>{
-                    tickHandler(imgs[i].dataset.skillrating, el, 30);
-                    loadingBars[i].style.width = imgs[i].dataset.skillrating + '%';
-                    loadingBars[i].classList.add('bg-ligthgray'); 
+                skillRatingSpans.forEach((el, i)=>{
+                    Page.tickHandler(skillLoadingBars[i].dataset.skillrating, el, 30);
+                    skillLoadingBars[i].style.width = skillLoadingBars[i].dataset.skillrating + '%';
+                    skillLoadingBars[i].classList.add('bg-ligthgray'); 
                 })
                 skillsRatingFinished = true; 
             }
         } 
-    });
-
-    // Functions
-    function tickHandler(skillRating, element, SPEED = 10){
-        let i = 0; 
-
-        let interval = setInterval(()=>{
-            tick(0, skillRating, element);
-        },SPEED)
-
-        function tick(from, to, element){
-            if(i > to) {
-                i = 0; 
-                clearInterval(interval); 
-            } else {
-                element.innerHTML = `${i}%`;
-                i++; 
-            }
-        }
     }
 
 })();
 
 
-const contactModule = (function(){
+const ContactModule = (function(){
 
     // Brings in section object from Page module 
     const { sections } = Page.pageInfo;  
@@ -257,35 +269,37 @@ const contactModule = (function(){
     const code = contactMe.querySelector('.editor .line #code');    
     
     // Sets the display to none so contact info can be shown without JS
-    me.style.display = 'none';     
+    me.style.display = 'none';  
+    code.style.display = 'none';    
 
-    // Event listeners 
-    window.addEventListener('scroll', ()=>{
-        if(window.scrollY >= Page.pageInfo.sections.contactMe.yPos) {
-            terminalIntro(); 
-        }
-    }); 
+    // Debounced event listener 
+    window.addEventListener('scroll', Page.debounce(handleTerminalIntro, 20));
 
-    // Functions 
+    // Handles terminal / contact me intro  
     let introFinished = false; 
     let printing = false; 
-    function terminalIntro(){
-        if(!introFinished && !printing) {
+    function handleTerminalIntro(){
+
+        if(window.scrollY >= sections.contactMe.yPos - 200 && !introFinished && !printing) {
+            terminalIntro();
+        }
+        
+        function terminalIntro(){
+            code.style.display = '';
             printing = true;
-            Page.typeWrite(Page.pageInfo.sections.contactMe.code, code, 140, true);        
+            Page.typeWrite(sections.contactMe.code, code, 140, true);        
+            
             setTimeout(()=>{
                 me.style.display = ''; 
                 introFinished = true; 
                 printing = false; 
             },2500)
-        } else {
-            return false; 
         }
     }
     
 })(); 
 
-const aboutMe = (function(){
+const AboutMe = (function(){
 
     const { sections } = Page.pageInfo; 
     const aboutMe = sections.aboutMe.element; 
@@ -296,15 +310,18 @@ const aboutMe = (function(){
         article.classList.add('off-screen'); 
     })
 
-    // Event listeners 
-    window.addEventListener('scroll', e =>{
-        Page.swoosh(articles, aboutMe.offsetTop - 300);
-    })
+    // Debounced event listener 
+    window.addEventListener('scroll',Page.debounce(handleSwoosh));
+
+    // Handles swoosh effect for about me section 
+    function handleSwoosh(e){
+        Page.swoosh(articles, aboutMe.offsetTop - 300); 
+    }
 
 })(); 
 
 
-const easterEgg = (function(){
+const EasterEgg = (function(){
 
     const eagle = document.querySelector('#eagle'); 
 
@@ -325,5 +342,3 @@ const easterEgg = (function(){
         }
     }
 })();
-
-

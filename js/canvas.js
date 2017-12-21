@@ -51,11 +51,13 @@ Ball.prototype.move = function() {
     this.draw(); 
 }
 
-// Sets up canvas animation and balls to animate, returns animate function
-const canvasModule = (function(){
+const CanvasModule = (function(){
 
     let balls = []; 
+    let quarterWidth = canvas.width / 4; 
+    let quarterHeight = canvas.height / 4; 
 
+    // Functions 
     function spawn(_x, _y, amount = 10){
         let x; 
         let y; 
@@ -73,9 +75,6 @@ const canvasModule = (function(){
             balls.push(ball); 
         }
     }
-
-    let quarterWidth = canvas.width / 4; 
-    let quarterHeight = canvas.height / 4; 
     
     function initCanvas(){
         spawn(quarterWidth, quarterHeight, 33);
@@ -100,19 +99,20 @@ const canvasModule = (function(){
         requestAnimationFrame(animate);  
     }
 
+    function resizeCanvas(e){ 
+        canvas.width = innerWidth; 
+        canvas.height = innerHeight; 
+    }
+
     canvas.addEventListener('click', e => {
         spawn(e.x, e.y, 10); 
     })
 
-    window.addEventListener('resize', e =>{
-        canvas.width = innerWidth; 
-        canvas.height = innerHeight; 
-    })
-
     return {
+        canvas,
+        resizeCanvas, 
         initCanvas,
         animate,
         spawn
     }
-
 })(); 

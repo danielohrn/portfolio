@@ -31,7 +31,7 @@
 .wrap { flex-wrap: wrap; }
 /* ========================================== */ 
 
-/*  START MAIN PAGE */ 
+/*  WRAPPER FOR WHOLE PAGE */ 
 .page-wrapper {
     font-family: 'Raleway', sans-serif;     
     overflow: hidden; 
@@ -104,15 +104,14 @@ header nav ul li i {
 .hamburger { display: none; }
 /* END HEADER AND NAV */ 
 
-/* MAIN START */ 
+ 
+/* GENERAL STYLES FOR SECTIONS */ 
 main section {
     min-height: 90vh; 
     width: 100%; 
     border-top: 1px solid lightgray;
     padding-bottom: 40px
 }
-
-/* GENERAL STYLES FOR SECTIONS */ 
 .section-header {
     font-size: 35px;
     padding: 10px;
@@ -141,12 +140,10 @@ main section {
 
 
 /* PRESENTATION SECTION START  */ 
-.presentation { background: #262934; }
-
 .name {
     position: absolute; 
     color: #dedede;
-    background: #00000014;
+    background: rgba(0, 0, 0, 0.078);
     padding: 50px;
 }
 
@@ -185,7 +182,7 @@ main section {
 }
 
 /* MY SKILLS SECTION START */ 
-.skill {
+.skill-group {
     display: flex; 
     flex-direction: column; 
     flex-wrap: wrap; 
@@ -200,7 +197,7 @@ main section {
     width: 30px; 
 }
 
-.skill ul li {
+.skill-group ul li {
     font-size: 1.5em; 
     margin: 10px 0;
     height: 30px; 
@@ -211,18 +208,18 @@ main section {
     padding: 5px 1px;  
 }
 
-.skill ul li span {
+.skill-group ul li span {
     margin-left: 10px; 
 }
 
-.skill h2 {
+.skill-group h2 {
     font-size: 2em; 
     background: #262934; 
     color: #fff;
     padding: 0 10px; 
 }
 
-.skill h3 {
+.skill-group h3 {
     font-size: 20px; 
     background: #262934; 
     color: #fff; 
@@ -346,7 +343,7 @@ footer {
         margin-top: 50px; 
     }
 
-    .presentation .name {
+    .name {
         width: 90vw; 
         top: 30%; 
         padding: 0; 
@@ -357,7 +354,7 @@ footer {
         width: 80%; 
     }
 
-    .skill {
+    .skill-group {
         width: 100%; 
     }
 
