@@ -1,0 +1,364 @@
+/* BACKGROUND AND TEXT COLOR */
+.bg-ligthgray   { background: #e6e6e6; }
+.bg-blackish    { background: #262934; }
+.bg-white       { background: #fff; }
+.bg-green       { background: #5fc35f; }
+.text-white     { color: #fff; }
+.text-green     { color: #5fc35f; }
+
+/* MAKE STUFF MOVE */ 
+.off-screen:nth-child(even)     { opacity: 0; transform: translateY(200px); }
+.off-screen:nth-child(odd)      { opacity: 0; transform: translateY(-200px); }
+.fade-in                        { transform: translateY(0px); }
+
+/*  FLEXBOX CLASSES */ 
+.flex-container { display: flex; justify-content: center; height: 100%; width: 100%; }
+
+/* flex direction */
+.flex-col { display: flex; flex-direction: column; }
+.flex-row { display: flex; flex-direction: row; }
+
+/* justify content */ 
+.justify-center         { justify-content: center; }
+.justify-space-around   { justify-content: space-around; }
+.justify-space-between  { justify-content: space-between; }
+
+/* align items */ 
+.align-center   { align-items: center; }
+.align-start    { align-items: flex-start; }
+
+/* wrap */ 
+.wrap { flex-wrap: wrap; }
+/* ========================================== */ 
+
+/*  WRAPPER FOR WHOLE PAGE */ 
+.page-wrapper {
+    font-family: 'Raleway', sans-serif;     
+    overflow: hidden; 
+}
+
+/* START HEADER AND NAV */ 
+header {
+    width: 100%; 
+    height: 100px;  
+    color: #000; 
+    top: 0px;
+    transition: all 0.6s ease; 
+    z-index: 1; 
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;    
+    position: fixed;
+}
+
+.header-initial {
+    height: 0px; 
+    overflow: hidden;
+    background: #fff;  
+}
+
+.header-scrolling {
+    background: #262934; 
+    height: 50px; 
+    color: #dedede; 
+}
+
+.header-scrolling i {
+    color: #dedede; 
+}
+
+.header-scrolling .logo {
+    font-size: 30px; 
+}
+
+header .logo {
+    margin-left: 20px;
+    font-size: 60px; 
+}
+
+header nav {
+    display: flex; 
+}
+
+header nav ul {
+    display: flex; 
+    flex-direction: row; 
+}
+
+header nav ul li {
+    padding: 2px; 
+    margin: 10px; 
+    display: flex; 
+    align-items: center; 
+    cursor: pointer;  
+}
+
+header nav ul li i {
+    margin: 0 5px; 
+    color: rgb(0, 0, 0); 
+}
+
+.nav-links p:hover { border-bottom: 1px solid #5fc35f; }
+
+.hidden { display: none; }
+.hamburger { display: none; }
+/* END HEADER AND NAV */ 
+
+ 
+/* GENERAL STYLES FOR SECTIONS */ 
+main section {
+    min-height: 90vh; 
+    width: 100%; 
+    border-top: 1px solid lightgray;
+    padding-bottom: 40px
+}
+.section-header {
+    font-size: 35px;
+    padding: 10px;
+    margin: 100px 0 50px 0; 
+}
+.text-content article {
+    width: 400px;
+    margin: 10px; 
+    padding: 10px;  
+    transition: 1s all ease; 
+}
+.text-content article p {
+    margin: 10px 0; 
+}
+.text-content article h2 {
+    font-size: 30px;
+    margin: 10px 0;
+    padding: 5px 10px;  
+}
+.text-content article h3 {
+    font-size: 20px; 
+    margin: 20px 0 10px 0;
+    padding: 5px 10px;  
+}
+/* ========================== */ 
+
+
+/* PRESENTATION SECTION START  */ 
+.name {
+    position: absolute; 
+    color: #dedede;
+    background: rgba(0, 0, 0, 0.078);
+    padding: 50px;
+}
+
+.name h1 { font-size: 3em; margin-bottom: 20px; }
+.name h2 { font-size: 1.5em; margin-bottom: 20px; }
+
+.btn {
+    color: inherit; 
+    display: inline-block; 
+    border: 1px solid #5fc35f; 
+    padding: 10px; 
+    transition: .8s ease; 
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #5fc35f; 
+}
+
+.name #skillList {
+    padding: 0px 10px; 
+    width: 120px; 
+    display: inline-block; 
+    text-align: center; 
+}
+/* END PRESENTATION SECTION */ 
+
+/* ARROW for scrolling up the top of page */ 
+.scroll-top {
+    opacity: .5; 
+    width: 100%; 
+    position: fixed; 
+    top: 50px; 
+    z-index: 1;
+    cursor: pointer;  
+}
+
+/* MY SKILLS SECTION START */ 
+.skill-group {
+    display: flex; 
+    flex-direction: column; 
+    flex-wrap: wrap; 
+    margin: 10px;  
+    transition: all .9s ease; 
+    padding: 30px;  
+    width: 30%; 
+    background: #fff; 
+}
+
+.skill-img {
+    width: 30px; 
+}
+
+.skill-group ul li {
+    font-size: 1.5em; 
+    margin: 10px 0;
+    height: 30px; 
+    width: 0%; 
+    display: flex;
+    align-items: center; 
+    transition: all 2s ease; 
+    padding: 5px 1px;  
+}
+
+.skill-group ul li span {
+    margin-left: 10px; 
+}
+
+.skill-group h2 {
+    font-size: 2em; 
+    background: #262934; 
+    color: #fff;
+    padding: 0 10px; 
+}
+
+.skill-group h3 {
+    font-size: 20px; 
+    background: #262934; 
+    color: #fff; 
+    padding: 0 10px; 
+}
+
+.skill-rating {
+    position: absolute; 
+    right: 35px; 
+}
+/* MY SKILLS SECTION END */ 
+
+
+/* MY WORK SECTION */ 
+.project {
+    width: 300px; 
+    height: 300px; 
+    border: 1px solid lightgray; 
+    margin: 10px; 
+    background: #5fc35f; 
+}
+/* MY WORK SECTION END */ 
+
+/* CONTACT ME SECTION */ 
+.editor {
+    font-family: 'Source Code Pro';
+    width: 600px;
+    height: 360px;
+    background: #2b2b2b;
+    display: flex;
+    flex-direction: column; 
+    color: #fff; 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.editor .top-bar {
+    width: 100%;
+    height: 20px; 
+    background: #cec7c7; 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.editor .line {
+    width: 100%; 
+    display: block; 
+}
+.me {
+    margin: 50px auto;
+    width: 278px;
+}
+.me h2 {
+    font-size: 17px; 
+    margin-top: 10px; 
+}
+.me p {
+    margin-left: 10px; 
+}
+/* END CONTACT ME SECTION */ 
+
+
+/* FOOTER */ 
+footer {
+    height: 1px; 
+    width: 100%;
+    position: relative; 
+}
+
+/* MEDIA */ 
+@media (max-width: 700px) {
+
+    .hamburger {
+        display: flex; 
+        justify-content: center;
+        align-items: center; 
+        margin: 0 15px 0 0; 
+        cursor: pointer; 
+    }
+
+    .open {
+        position: fixed; 
+        right: 0px; 
+        top: 50px; 
+        width: 100%; 
+    }
+
+    .closed {
+        position: fixed; 
+        right: 0px;
+        top: 100px;  
+    }
+
+    header {
+        height: 50px; 
+    }
+
+    .header-initial {
+        display: flex;
+        height: 50px; 
+    }
+
+    header nav {
+        display: flex;
+        position: fixed; 
+        top: 50px; 
+        right: -500px; 
+        flex-direction: column;
+        background: inherit; 
+        transition: all .5s ease; 
+    }
+
+    header .logo {
+        font-size: 30px; 
+    }
+
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        margin-top: 50px; 
+    }
+
+    .name {
+        width: 90vw; 
+        top: 30%; 
+        padding: 0; 
+        background: inherit; 
+    }
+
+    .editor {
+        width: 80%; 
+    }
+
+    .skill-group {
+        width: 100%; 
+    }
+
+    .content article {
+        width: 100%;
+    }
+}

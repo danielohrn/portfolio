@@ -3,162 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Rozha+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">  
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">    
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css"> 
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Daniel</title>
+    <link rel="icon" type="image/png" href="img/eagle.png"/>
+    <title>Hey, im Daniel</title>
 </head>
 <body>
-
     <!-- PAGE WRAPPER -->
-    <div class="wrapper">   
-        
-        <noscript>
-           <style>
-               
-            </style> 
-        </noscript>
-
-        <header>
-            <div class="logo">
-                <h1>D.</h1>
+    <div class="page-wrapper">
+        <!-- HEADER -->
+        <header id="header" class="header-initial">
+            <div class="logo flex-row justify-center align-center">
+                <span>D.</span>
             </div>
+            <!-- NAV HAMBURGER -->
+            <div hidden id="hamburger" class="hamburger">
+                <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+            </div>
+
+            <!-- NAV -->
             <nav>
-                <ul class="nav-links">
-                    <li id="skills">
+                <ul id="navLinks" class="nav-links">
+                    <li data-section="mySkills">
                         <i class="fa fa-star fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">My skills</span>
+                        <p>My skills</p>
                     </li> 
-                    <li id="myWork">
+                    <li data-section="myWork">
                         <i class="fa fa-archive fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">My work</span>
+                        <p>My work</p>
                     </li>                       
-                    <li id="contactMe">
+                    <li data-section="contactMe">
                         <i class="fa fa-id-card fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">Contact me</span>
+                        <p>Contact me</p>
                     </li>
-                    <li id="aboutKYH">
-                        <i class="fa fa-graduation-cap fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">Front End Developer på KYH</span>
-                    </li> 
-                    
-                    <ul class="social-links">
-                        <li>
-                            <i class="fa fa-github-square fa-2x" aria-hidden="true"></i>
-                            <span class="nav-text">Github</span>
-                        </li>
-                        <li>
-                            <i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i>
-                            <span class="nav-text">LinkedIn</span>
-                        </li>  
-                    </ul>
-                                 
+                    <li data-section="aboutMe">
+                        <i class="fa fa-male fa-2x" aria-hidden="true"></i>
+                        <p>About me</p>
+                    </li>
                 </ul>
             </nav>
         </header>
-    
+        <!-- MAIN START -->
         <main>
-
-        <div class="presentation flex-col-center">
-                <div class="me">
-                    <h1><span class="">D</span>aniel <span class="">Ö</span>hrn <span class="">H</span>asslöf,</h1>
-                    <h2>Front End Developer student</h2>
-                    <!-- <ul class="flex-row-center">
-                        <li>Front End</li>
-                        <li>Backend</li>
-                        <li>UX</li>
-                    </ul> -->
-                </div>
-
-                <div class="my-work-anchor flex-col-center">
-                    <h2>My work and skills</h2>
-                    <i id="scroll-anchor" class="fa fa-chevron-down fa-3x" aria-hidden="true"></i>        
-                </div>
-
+            <div hidden id="scroll-arrow" class="hidden flex-col justify-center align-center">
+                <i class="fa fa-chevron-up fa-1x" aria-hidden="true"></i>        
             </div>
 
-            <div class="my-skills">
-
-
-                <div class="skills">
+            <section id="presentation" class="bg-blackish flex-col justify-center align-center">
+                <!-- CANVAS -->
+                <canvas id="canvas"></canvas>
+                <!-- HEY IM DANIEL -->
+                <div class="name">
+                    <h1>Hey, im <span class="text-green">Daniel</span>.</h1>
+                    <h2>I'm a frontend developer student with skills in <span id="skillList" class="bg-green">JavaScript.</span></h2>
+                    <a id="checkItOut" class="btn">
+                        Check out my skills and my work.
+                        <i class="fa fa-hand-o-down fa-1x" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </section>
+            <!-- MY SKILLS -->
+            <section id="mySkills" class="bg-ligthgray">
+                <h1 class="section-header flex-row justify-center">SKILLS</h1>
+                <!-- FRONTEND SKILLS -->
+                <div class="flex-container wrap">
+                    <div class="skill-group">
+                        <h2>Frontend</h2>
+                        <ul>
+                            <li data-skillRating="80">
+                                <img class="skill-img" src="img/skills/html5.png" alt="html-logo">
+                                <span>HTML5</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="80">
+                                <img class="skill-img" src="img/skills/css3.png" alt="css-logo">
+                                <span>CSS</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="80">
+                                <img class="skill-img" src="img/skills/js.png" alt="javascript-logo">
+                                <span>JavaScript</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                        </ul>
+                        <!-- FRONTEND ADD-ONS -->
+                        <h3>Add-ons</h3>
+                        <ul>
+                            <li data-skillRating="75">
+                                <img class="skill-img" src="img/skills/es6.png" alt="es6-logo">
+                                <span>ES6</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="20">
+                                <img class="skill-img" src="img/skills/react.png" alt="react-logo">
+                                <span>React</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="10">
+                                <img class="skill-img" src="img/skills/sass.png" alt="sass-logo">
+                                <span>Sass</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- BACKEND SKILLS -->
+                    <div class="skill-group">
+                        <h2>Backend</h2>
+                        <ul>
+                            <li data-skillRating="20">
+                                <img class="skill-img" src="img/skills/node.png" alt="node-logo">
+                                <span>Node.js</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="10">
+                                <img class="skill-img" src="img/skills/php.png" alt="php-logo">
+                                <span>PHP</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="10">
+                                <img class="skill-img" src="img/skills/wordpress.png" alt="wordpress-logo">
+                                <span>Wordpress</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                        </ul>
+                        <!-- BACKEND ADD-ONS -->
+                        <h3>Add-ons</h3>
+                        <ul>
+                            <li data-skillRating="15">
+                                <img class="skill-img" src="img/skills/express.png" alt="express-logo">
+                                <span>Express</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="20">
+                                <img class="skill-img" src="img/skills/socketio.gif" alt="socketio-logo">
+                                <span>Socket.io</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- TOOLS -->
+                    <div class="skill-group">
+                        <h2>Tools</h2>
+                        <ul>
+                            <li data-skillRating="50">
+                                <img class="skill-img" src="img/skills/npm.png" alt="npm-logo">
+                                <span>npm</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="40">
+                                <img class="skill-img" src="img/skills/git.png" alt="git-logo">
+                                <span>Git</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="40">
+                                <img class="skill-img" src="img/skills/github.png" alt="github-logo">
+                                <span>Github</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- OTHER SKILLS -->
+                    <div class="skill-group">
+                        <h2>Other</h2>
+                        <ul>
+                            <li data-skillRating="20">
+                                <img class="skill-img" src="img/skills/csharp.png" alt="c-sharp-logo">
+                                <span>C#</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                            <li data-skillRating="20">
+                                <img class="skill-img" src="img/skills/python.png" alt="python-logo">
+                                <span>Python</span>
+                                <span class="skill-rating"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- MY WORK -->
+            <section id="myWork">
+                <h1 class="section-header flex-row justify-center">WORK</h1>
+                <div class="flex-container wrap">
+                    <div class="project flex-col justify-center align-center">Coming soon</div>
+                </div>
+            </section>
+            <!-- CONTACT ME -->
+            <section id="contactMe" class="bg-ligthgray">
+                <h1 class="section-header flex-row justify-center">CONTACT</h1>
+                <!-- TERMINAL -->
+                <div class="flex-container">
+                    <div class="editor">
+                        <div class="top-bar">
+                            <i style="color: #ff0000b0; margin-left: 5px;" class="fa fa-circle" aria-hidden="true"></i>
+                            <i style="color: #f1af47" class="fa fa-circle" aria-hidden="true"></i>
+                            <i style="color: #34d034" class="fa fa-circle" aria-hidden="true"></i> 
+                        </div>
+                        <div class="line">
+                            <span>$ </span><span id="code">dev.getInfo();</span>
+                        </div>
+                        <!-- CONTACT DETAILS -->
+                        <div class="me text-white">
+                            <h2>Personal info:</h2>
+                            <p>Daniel Öhrn Hasslöf</p>
+                            <p>Age: 25</p>
+                            <p>City: Stockholm</p>
+                
+                            <h2>Get in touch:</h2>
+                            <p>dhasslof@gmail.com</p>
+                            <p>
+                                <a class="text-white" target="_blank" href="https://www.linkedin.com/in/daniel-%C3%B6hrn-hassl%C3%B6f-a3b1a8a1/">
+                                    LinkedIn
+                                    <i class="fa fa-external-link" aria-hidden="true"></i>
+                                </a>
+                            </p>  
+                        </div>   
+                    </div>
+                </div>
+            </section>
+            <!-- ABOUT ME -->
+            <section id="aboutMe">
+                <h1 class="section-header flex-row justify-center">ABOUT ME</h1>
+                <!-- EDUCATION -->
+                <div class="flex-container align-start wrap text-content">
+                    <article>
+                        <h2 class="bg-blackish text-white"><i class="fa fa-graduation-cap fa-1x" aria-hidden="true"></i>Education</h2>
+                        <p>I am currently studying year one of the frontend developer program at KYH.</p>
+                        <p>I am learning HTML, CSS, JavaScript with popular frameworks, backend programming and UI/UX-design.</p>
                     
-                    <div class="skill">
-                        <i id="html5-icon" class="fa fa-html5 fa-4x" aria-hidden="true"></i> 
-                        <h2>HTML5</h2>  
-                    </div>
-    
-                    <div class="skill">
-                        <i id="css3-icon" class="fa fa-css3 fa-4x" aria-hidden="true"></i>   
-                        <h2>CSS3</h2>                          
-                    </div>
-    
-                    <div class="skill">
-                        <i id="js-icon" class="fa fa-heart fa-4x" aria-hidden="true"></i> 
-                        <h2>Javascript/ES2015</h2>                         
-                    </div>
+                        <h3 class="bg-blackish text-white">LIA / Work experience</h3>
+                        <p>I will be doing work experience, or "LIA" (learning while working) in the fall of 2018.</p>      
+                    </article>
+                    <!-- PERSONAL -->
+                    <article>
+                        <h2 class="bg-blackish text-white"><i class="fa fa-user" aria-hidden="true"></i>Personal</h2>
+                        <p>I love to code and to learn about new techniques. My language of choice is JavaScript with ES6.</p>
 
-                    <div class="skill">
-                        <i class="fa fa-git fa-4x" aria-hidden="true"></i>
-                        <h2>Git</h2>                           
-                    </div>
-
-                    <div class="skill">
-                        <i class="fa fa-github-alt fa-4x" aria-hidden="true"></i>
-                        <h2>Github</h2>                          
-                    </div>
-
-                    <div class="skill">
-                        <i class="fa fa-users fa-4x" aria-hidden="true"></i>
-                        <h2>Agile working</h2>                         
-                    </div>
-
+                        <h3 class="bg-blackish text-white">Personal goals</h3>
+                        <p>My goal is to get hired as soon as possible in the industry and to continue to learn about software and web-development along the way.</p>   
+                    </article>
                 </div>
-
-
-            </div>
-
-            <div class="my-work-showcase flex-row-center">
-
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-                
-                <div class="project"></div>
-                <div class="project"></div>
-                <div class="project"></div>
-
-            </div>
-
-
-            <div class="contact-me flex-col-center">
-
-                <p>Phone</p>
-                <p>Email</p>
-                <p>LinkedIn</p>
-                
-            </div>
-
-
-            <div class="about-kyh flex-col-center">
-
-                <p>Om skolan</p>
-                <p>Kurser</p>
-                <p>LIA</p>
-                
-            </div>
-                
-    
+            </section>    
         </main>
-
+        <!-- FOOTER -->
+        <footer class="bg-blackish">
+            <img id="eagle" src="img/eagle.png" alt="eagle" style="width: 40px; position: absolute; right: 10px; bottom: 1px; transition: all .1s ease; cursor: pointer;">
+        </footer>
     </div>
-
-
-
-
-
-    <script src="script.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
